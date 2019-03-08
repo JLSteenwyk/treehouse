@@ -64,7 +64,7 @@ shinyServer(function(input, output, session) {
     content = function(file){
       # open the format of file which needs to be downloaded ex: pdf, png etc. 
       pdf(file)
-      tree<-read.tree("~/Desktop/PROGRAMS/shiny_test/Data/busco1668.nucl.part.tree")
+      tree<-read.tree("./Data/busco1668.nucl.part.tree")
       # root tree
       outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Penicillium_occitanis","Penicillium_marneffei")
       tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
