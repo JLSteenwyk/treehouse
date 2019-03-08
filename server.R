@@ -90,7 +90,7 @@ shinyServer(function(input, output, session) {
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # write tree file out
-      write.tree(phy)
+      write.tree(pruned.tree)
     }
   )
 })
