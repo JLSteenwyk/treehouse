@@ -16,13 +16,23 @@ shinyUI(fluidPage(
 
   # input file
   fileInput("file", label = h3("File input")),
-  p("Plot subtrees of select species in the phylogeny of Aspergillus and Penicillium species"),
   hr(),
   
   # Create a spot for the barplot
-  mainPanel(
+  sidebarLayout(
+    sidebarPanel(
+      h2("Obtain subtrees from the Aspergillus and Penicillium phylogeny"),
+      p("Upload a single column file with the taxa from the phylogeny that you would like the subtree for."),
+      p("Ensure that genus and species name have an underscore between them (e.g., Aspergillus_flavus)"),
+      p("Dependencies include phytools and ape which can be installed using the following commands:"),
+      code('install.packages(phytools, dep=T)'),
+      code('install.packages(ape, dep=T)'),
+      p("Please cite: Steenwyk, et al. 2018, bioRxiv. https://www.biorxiv.org/content/10.1101/370429v3")
+    ),
+    mainPanel(
+    plotOutput("phyloPlot", width = "100%"),
     downloadButton(outputId = "TreePlot", label = "Download Plot"),
-    downloadButton(outputId = "Newick", label = "Download Newick File"),
-    plotOutput("phyloPlot", width = "100%")
+    downloadButton(outputId = "Newick", label = "Download Newick File")
+    )
   )
 ))
