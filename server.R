@@ -76,7 +76,7 @@ shinyServer(function(input, output, session) {
   )
   # write treefile
   output$Newick<- downloadHandler(
-    # Specif the file name
+    # Specify the file name
     filename=function() {
       paste("Aspergillaceae_subset-",Sys.Date(),".tre",sep= "")},
     content=function(file){
@@ -90,7 +90,7 @@ shinyServer(function(input, output, session) {
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # write tree file out
-      write.tree(pruned.tree, file="")
+      writeNexus(pruned.tree, file="")
     }
   )
 })
