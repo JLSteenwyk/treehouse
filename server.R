@@ -52,7 +52,7 @@ shinyServer(function(input, output, session) {
     filename = function() {
       paste("Aspergillaceae_subset-",Sys.Date(),".pdf",sep= "")},
     content = function(file){
-      # open the format of file which needs to be downloaded ex: pdf, png etc. 
+      # open the pdf
       pdf(file)
       tree<-read.tree("./Data/busco1668.nucl.part.tree")
       # root tree
@@ -65,9 +65,33 @@ shinyServer(function(input, output, session) {
       
       ## plot tree
       # create tip label scaling feature
-      plotTree(pruned.tree)
+      scaledLabels<-function(tree,...){
+        fsize<-36*par()$pin[2]/par()$pin[1]/Ntip(tree)
+        plotTree(tree,fsize=fsize,lwd=1,...)
+      }
+      scaledLabels(pruned.tree)
       add.scale.bar(cex = 0.7, font = 2, col = "black")
       dev.off()
     }
+    
+  # write treefile
+  output$Newick<- downloadHandler(
+    # Specif the file name
+    filename=function() {
+      paste("Aspergillaceae_subset-",Sys.Date(),".tre",sep= "")},
+    content=function(file){
+      # read tree file in
+      tree<-read.tree("./Data/busco1668.nucl.part.tree")
+      # root tree
+      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Penicillium_occitanis","Penicillium_marneffei")
+      tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
+      # drop outgroup
+      tree<-drop.tip(tree, outgroup.labels)
+      ingroup.labels<-as.vector(data()$V1)
+      pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
+      # write tree file out
+      write.tree(phy)
+    }
+  )
   )
 })

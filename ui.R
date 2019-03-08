@@ -21,6 +21,7 @@ shinyUI(fluidPage(
   # Create a spot for the barplot
   mainPanel(
     plotOutput("phyloPlot", width = "100%"),
-    downloadButton(outputId = "TreePlot", label = "Download The Plot")
+    downloadButton(outputId = "TreePlot", label = "Download Plot"),
+    downloadButton(outputId = "Newick", label = "Download Newick File")
   )
 ))
