@@ -32,7 +32,7 @@ shinyServer(function(input, output, session) {
   # function to create plot
   output$phyloPlot <- renderPlot({
     # read in tree
-    tree<-read.tree("~/Desktop/PROGRAMS/shiny_test/Data/busco1668.nucl.part.tree")
+    tree<-read.tree("./Data/busco1668.nucl.part.tree")
     # root tree
     outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Penicillium_occitanis","Penicillium_marneffei")
     tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
@@ -45,15 +45,6 @@ shinyServer(function(input, output, session) {
     # create tip label scaling feature
     plotTree(pruned.tree)
     add.scale.bar(cex = 0.7, font = 2, col = "black")
-    #scaled<-function(tree,...){
-    #  fsize<-36*par()$pin[2]/par()$pin[1]/Ntip(tree)
-    # plotTree(tree,fsize=fsize,lwd=1,xlim=c(0,1.25*max(nodeHeights(tree))),ftype="i")
-    #}
-    #
-    #scaled(pruned.tree)
-    #nodelabels()
-    #cladelabels(node=129,text="Penicillium")
-    #cladelabels(node=7,text="Aspergillus")
   })
   
   # save pdf
