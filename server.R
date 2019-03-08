@@ -73,7 +73,7 @@ shinyServer(function(input, output, session) {
       add.scale.bar(cex = 0.7, font = 2, col = "black")
       dev.off()
     }
-    
+  )
   # write treefile
   output$Newick<- downloadHandler(
     # Specif the file name
@@ -92,6 +92,5 @@ shinyServer(function(input, output, session) {
       # write tree file out
       write.tree(phy)
     }
-  )
   )
 })
