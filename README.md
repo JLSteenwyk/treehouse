@@ -1,10 +1,11 @@
-# treehouse
+# treehouse - 
 
-Aspergillus and Penicillium are genera of fungi who's species are of medical and technologic importance. To understand these traits, we have reconstructed the evolutionary history of Aspergillus and Penicillium species. 
+Research groups I am involved in create large phylogenies and we hope our analyses can provide the evolutionary background to inform other research group's projects. However, we recognize our choice in taxon sampling may provide more information than a researcher needs. To this end, we have created treehouse, which produces a subtree from a set of taxa. For example, if we constructed a phylogeny of 100 taxa and your research project involves 20 taxa, you can obtain a subtree of these 20 taxa from the published 100 taxa phylogeny. 
 <br />
-However, we recognize that researchers may be interested in a subset of taxa from the phylogeny. To this end, we have created this shiny app to enable researchers to obtain a subset of species from the ingroup (Aspergillaceae) in the putative species tree presented in Figure 1 of Steenwyk et al. 2018, bioRxiv.
-<br />
-If you use this, please cite Steenwyk et al. 2018, bioRxiv (https://www.biorxiv.org/content/early/2018/10/27/370429)
+## Current phylogenies available
+• Aspergillaceae - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)
+• Saccharomycotina - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)
+• Saccharomycotina - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)
 
 ## Quick Start
 
