@@ -35,8 +35,21 @@ shinyServer(function(input, output, session) {
     data()$V1
   }, include.colnames=FALSE)
   
-  ## checkbox group for phylogeny of choice
-  output$value <- renderPrint({ input$checkGroup })
+  ## radio button for phylogeny of choice
+  phyloInput <- reactive({input$phyloSelect
+    if (input$phyloSelect == 1) {
+      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      }
+      else if (input$phyloSelect == 2) {
+      tree<-read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
+      }
+      else if (input$phyloSelect == 3) {
+      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      }
+      else {
+      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      }
+    })
   
   ## function to create plot
   output$phyloPlot <- renderPlot({

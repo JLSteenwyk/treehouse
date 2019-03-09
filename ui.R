@@ -13,18 +13,19 @@ library(shiny)
 shinyUI(fluidPage(
   # generate a page title
   titlePanel("treehouse - under development - do not use"),
-
+  h4("Obtain subtrees from our treehouse"), 
   hr(),
   
   # Create a spot for the barplot
   sidebarLayout(
     sidebarPanel(
-      # header
-      h4("Obtain subtrees from our treehouse"),
       # radio buttons for which phylogeny a user wants to subset
-      radioButtons("phyloSelect", label = h3("tree options"), 
-        choices = list("Aspergillaceae - Steenwyk et al. 2018" = 1, "Saccharomycotina - Shen et al. 2016" = 2, "Saccharomycotina - placeholder" = 3),
-        selected = 1),
+      radioButtons("phyloSelect", label = h4("tree options"), 
+        choices = list(
+          "Aspergillaceae - Steenwyk et al. 2018" = 1, 
+          "Saccharomycotina - Shen et al. 2016" = 2, 
+          "Saccharomycotina - placeholder" = 3),
+          selected = 1),
       # input file
       fileInput("file", label = h3("File input")),
       # user instructions
