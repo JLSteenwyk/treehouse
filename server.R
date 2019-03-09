@@ -50,7 +50,7 @@ shinyServer(function(input, output, session) {
       else {
       t<-read.tree(datasetInput())
       }
-    return(t)
+    load(t)
     })
 
   ## select outgroup labels reactively based on radiobuttons
@@ -67,7 +67,7 @@ shinyServer(function(input, output, session) {
       else {
       labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
-    return(labels)
+    load(labels)
     })
   
   ## function to create plot
@@ -78,9 +78,7 @@ shinyServer(function(input, output, session) {
     tree<-drop.tip(tree, outgroup.labels)
     ingroup.labels<-as.vector(data()$V1)
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-    
-    ## plot tree
-    # create tip label scaling feature
+    # plot tree
     plotTree(pruned.tree)
     add.scale.bar(cex = 0.7, font = 2, col = "black")
   })
