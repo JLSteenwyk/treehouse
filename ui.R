@@ -30,7 +30,7 @@ shinyUI(fluidPage(
       actionButton("go", "Update"),
       hr(),
       # user instructions
-      p("• Upload a single column file with the taxa from the phylogeny that you would like the subtree for."),
+      p("• Upload a single column file with the taxa from the phylogeny that you would like a subtree for"),
       p("• Ensure that genus and species name have an underscore between them (e.g., Aspergillus_flavus)"),
       p("• Dependencies include phytools and ape which can be installed using the following commands:"),
       code('install.packages(phytools, dep=T)'),
