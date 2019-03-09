@@ -36,7 +36,7 @@ shinyServer(function(input, output, session) {
     # read in tree
     tree<-read.tree("./Data/busco1668.nucl.part.tree")
     # root tree
-    tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
+    tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
     # drop outgroup
     tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
     ingroup.labels<-as.vector(data()$V1)
