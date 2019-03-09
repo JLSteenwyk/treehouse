@@ -28,60 +28,60 @@ shinyServer(function(input, output, session) {
     return(taxa.list)
     })
 
-  datasetInput <- eventReactive(input$go, {
-    switch(input$dataset,
-      "Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre",
-      "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
-      #"Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
-      )
-  }, ignoreNULL = FALSE)
+  # datasetInput <- eventReactive(input$go, {
+  #   switch(input$dataset,
+  #     "Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre",
+  #     "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+  #     #"Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
+  #     )
+  # }, ignoreNULL = FALSE)
   
-  ## select phylo reactively based on radiobuttons
-  tree <- eventReactive(input$go, {input$phyloSelect
-    if (input$phyloSelect == "Aspergillaceae2018") {
-      t<-read.tree(datasetInput())
-      }
-      else if (input$phyloSelect == "Saccharomycotina2016") {
-      t<-read.tree(datasetInput())
-      }
-      else if (input$phyloSelect == "Aspergillaceae2018") {
-      t<-read.tree(datasetInput())
-      }
-      else {
-      t<-read.tree(datasetInput())
-      }
-    load(t)
-    })
+  # ## select phylo reactively based on radiobuttons
+  # tree <- eventReactive(input$go, {input$phyloSelect
+  #   if (input$phyloSelect == "Aspergillaceae2018") {
+  #     t<-read.tree(datasetInput())
+  #     }
+  #     else if (input$phyloSelect == "Saccharomycotina2016") {
+  #     t<-read.tree(datasetInput())
+  #     }
+  #     else if (input$phyloSelect == "Aspergillaceae2018") {
+  #     t<-read.tree(datasetInput())
+  #     }
+  #     else {
+  #     t<-read.tree(datasetInput())
+  #     }
+  #   load(t)
+  #   })
 
-  ## select outgroup labels reactively based on radiobuttons
-  outgroup.labels <- eventReactive(input$go, {input$phyloSelect
-    if (input$phyloSelect == "Aspergillaceae2018") {
-      labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
-      }
-      else if (input$phyloSelect == "Saccharomycotina2016") {
-      labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
-      }
-      else if (input$phyloSelect == "Aspergillaceae2018") {
-      labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
-      }
-      else {
-      labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
-      }
-    load(labels)
-    })
+  # ## select outgroup labels reactively based on radiobuttons
+  # outgroup.labels <- eventReactive(input$go, {input$phyloSelect
+  #   if (input$phyloSelect == "Aspergillaceae2018") {
+  #     labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+  #     }
+  #     else if (input$phyloSelect == "Saccharomycotina2016") {
+  #     labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
+  #     }
+  #     else if (input$phyloSelect == "Aspergillaceae2018") {
+  #     labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+  #     }
+  #     else {
+  #     labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+  #     }
+  #   load(labels)
+  #   })
   
-  ## function to create plot
-  output$phyloPlot <- renderPlot({
-    # root tree
-    tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
-    # drop outgroup
-    tree<-drop.tip(tree, outgroup.labels)
-    ingroup.labels<-as.vector(data()$V1)
-    pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-    # plot tree
-    plotTree(pruned.tree)
-    add.scale.bar(cex = 0.7, font = 2, col = "black")
-  })
+  # ## function to create plot
+  # output$phyloPlot <- renderPlot({
+  #   # root tree
+  #   tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
+  #   # drop outgroup
+  #   tree<-drop.tip(tree, outgroup.labels)
+  #   ingroup.labels<-as.vector(data()$V1)
+  #   pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
+  #   # plot tree
+  #   plotTree(pruned.tree)
+  #   add.scale.bar(cex = 0.7, font = 2, col = "black")
+  # })
   
   # ## save pdf
   # output$TreePlot<- downloadHandler(

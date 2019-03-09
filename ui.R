@@ -38,7 +38,7 @@ shinyUI(fluidPage(
       br(),
       br(),
       br(),
-      p("treehouse was developed and maintained by Jacob L. Steenwyk")
+      helpText("treehouse is developed and maintained by Jacob L. Steenwyk")
     ),
     
     mainPanel(
