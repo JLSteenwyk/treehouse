@@ -23,7 +23,7 @@ shinyUI(fluidPage(
       selectInput("phyloSelect", "Species trees:",
         choices=c("Aspergillaceae - Steenwyk et al. 2018",
                   "Saccharomycotina - Shen et al. 2016",
-                  "Saccharomycotina - placeholder")),
+                  "Saccharomycotina - Shen et al. 2018")),
       # input file
       fileInput("file", "File input"),
       # reactive button
