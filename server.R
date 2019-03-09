@@ -28,13 +28,16 @@ shinyServer(function(input, output, session) {
     return(taxa.list)
     })
 
-  # datasetInput <- eventReactive(input$go, {
-  #   switch(input$dataset,
-  #     "Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre",
-  #     "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
-  #     #"Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
-  #     )
-  # }, ignoreNULL = FALSE)
+  datasetInput <- reactive({
+    if (input$dataset == "Aspergillaceae - Steenwyk et al. 2018") {
+      datasetInput <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
+    } else if (input$dataset == "Saccharomycotina - Shen et al. 2016") {
+      datasetInput <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+    } else if (input$dataset == "Saccharomycotina - placeholder") {
+      datasetInput <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+    }
+      )
+  }, ignoreNULL = FALSE)
   
   # ## select phylo reactively based on radiobuttons
   # tree <- eventReactive(input$go, {input$phyloSelect
@@ -70,18 +73,18 @@ shinyServer(function(input, output, session) {
   #   load(labels)
   #   })
   
-  # ## function to create plot
-  # output$phyloPlot <- renderPlot({
-  #   # root tree
-  #   tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
-  #   # drop outgroup
-  #   tree<-drop.tip(tree, outgroup.labels)
-  #   ingroup.labels<-as.vector(data()$V1)
-  #   pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-  #   # plot tree
-  #   plotTree(pruned.tree)
-  #   add.scale.bar(cex = 0.7, font = 2, col = "black")
-  # })
+  ## function to create plot
+  output$phyloPlot <- renderPlot({
+    # root tree
+    tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
+    # drop outgroup
+    tree<-drop.tip(tree, outgroup.labels)
+    ingroup.labels<-as.vector(data()$V1)
+    pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
+    # plot tree
+    plotTree(pruned.tree)
+    add.scale.bar(cex = 0.7, font = 2, col = "black")
+  })
   
   # ## save pdf
   # output$TreePlot<- downloadHandler(
