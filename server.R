@@ -7,17 +7,22 @@
 #    http://shiny.rstudio.com/
 #
 
+
+## Load necessary packages
 library(shiny)
 library(phytools)
 library(ape)
 
+## Set outgroup taxa
 # set outgroup taxa for Aspergillaceae
 outgroup.labels_Aspergillaceae=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
 
-# Define server logic required to draw a histogram
+
+
+# Define server logic
 shinyServer(function(input, output, session) {
   
-  # read in file reactively
+  ## read in file reactively
   data <- reactive({ 
     req(input$file)
     inFile <- input$file
@@ -25,16 +30,18 @@ shinyServer(function(input, output, session) {
     return(taxa.list)
     })
   
-  # print out contents of data
+  ## print out contents of data
   output$contents <- renderTable({
     data()$V1
   }, include.colnames=FALSE)
   
+  ## checkbox group for phylogeny of choice
+  output$value <- renderPrint({ input$checkGroup })
   
-  # function to create plot
+  ## function to create plot
   output$phyloPlot <- renderPlot({
     # read in tree
-    tree<-read.tree("./Data/busco1668.nucl.part.tree")
+    tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     # root tree
     tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
     # drop outgroup
@@ -48,7 +55,7 @@ shinyServer(function(input, output, session) {
     add.scale.bar(cex = 0.7, font = 2, col = "black")
   })
   
-  # save pdf
+  ## save pdf
   output$TreePlot<- downloadHandler(
     #Specify The File Name 
     filename = function() {
@@ -56,34 +63,28 @@ shinyServer(function(input, output, session) {
     content = function(file){
       # open the pdf
       pdf(file)
-      tree<-read.tree("./Data/busco1668.nucl.part.tree")
+      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       # root tree
       tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
       # drop outgroup
       tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-      
-      ## plot tree
-      # create tip label scaling feature
-      #scaledLabels<-function(tree,...){
-      #  fsize<-36*par()$pin[2]/par()$pin[1]/Ntip(tree)
-      #  plotTree(tree,fsize=fsize,lwd=1,...)
-      #}
-      #scaledLabels(pruned.tree)
+      # plot tree
       plotTree(pruned.tree)
       add.scale.bar(cex = 0.7, font = 2, col = "black")
       dev.off()
     }
   )
-  # write treefile
+  
+  ## write treefile
   output$Newick<- downloadHandler(
     # Specify the file name
     filename=function() {
       paste("Aspergillaceae_subset-",Sys.Date(),".tre",sep= "")},
     content=function(file){
       # read tree file in
-      tree<-read.tree("./Data/busco1668.nucl.part.tree")
+      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       # root tree
       tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
       # drop outgroup
