@@ -13,9 +13,10 @@ library(shiny)
 library(phytools)
 library(ape)
 
-## Set outgroup taxa
-# set outgroup taxa for Aspergillaceae
-
+## Set default tree and outgroup labels
+tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      
 
 # Define server logic
 shinyServer(function(input, output, session) {
@@ -38,7 +39,6 @@ shinyServer(function(input, output, session) {
     if (input$phyloSelect == 1) {
       tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
-      
       }
       else if (input$phyloSelect == 2) {
       tree<-read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
