@@ -3,9 +3,9 @@
 Research groups I am involved in create large phylogenies and we hope our analyses can provide the evolutionary background to inform other research group's projects. However, we recognize our choice in taxon sampling may provide more information than a researcher needs. To this end, we have created treehouse, which produces a subtree from a set of taxa. For example, if we constructed a phylogeny of 100 taxa and your research project involves 20 taxa, you can obtain a subtree of these 20 taxa from the published 100 taxa phylogeny. 
 <br />
 ## Current phylogenies available
-• Aspergillaceae - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)
-• Saccharomycotina - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)
-• Saccharomycotina - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)
+• Aspergillus and Penicillium species (Aspergillaceae) - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
+• Saccharomycotina - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)<br />
+• Saccharomycotina - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br />
 
 ## Quick Start
 
@@ -21,7 +21,7 @@ install.packages("phytools", dep=T)
 After installing dependencies load shiny and run the shiny by executing the runGitHub() command
 ```
 library(shiny)
-runGitHub("Aspergillaceae_subtree", "JLSteenwyk")
+runGitHub("treehouse", "JLSteenwyk")
 ```
 
 ### 3) Input list of taxa
@@ -33,8 +33,12 @@ Aspergillus_fumigatus
 Penicillium_solitum
 Penicillium_antarcticum
 ```
+See example_taxa_Aspergillaceae.txt as an example file in the present github repo
 
 ### 4) Download the result
 To download the pdf of the phylogeny or the newick tree file, click "Download Plot" or "Download Newick File", respectively.
 <br /><br />
-Thank you for using this app!
+
+## Author
+* **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)
+
