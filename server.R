@@ -22,7 +22,7 @@ outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii",
 shinyServer(function(input, output, session) {
   
   ## read in file reactively
-  data <- reactive({ 
+  data <- eventReactive(input$go, { 
     req(input$file)
     inFile <- input$file
     taxa.list<-read.table(inFile$datapath)
@@ -31,18 +31,14 @@ shinyServer(function(input, output, session) {
 
   datasetInput <- eventReactive(input$go, {
     switch(input$dataset,
-           "Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre",
-           "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre",
-          )
+      "Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre",
+      "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre",
+      "Aspergillaceae2018" = "hold"
+      )
   }, ignoreNULL = FALSE)
   
-  ## ability to print out contents of data
-  output$contents <- renderTable({
-    data()$V1
-  }, include.colnames=FALSE)
-  
   ## select phylo reactively based on radiobuttons
-  tree <- reactive({input$phyloSelect
+  tree <- eventReactive(input$go, {input$phyloSelect
     if (input$phyloSelect == "Aspergillaceae2018") {
       read.tree(datasetInput())
       }
@@ -58,14 +54,14 @@ shinyServer(function(input, output, session) {
     })
 
   ## select outgroup labels reactively based on radiobuttons
-  outgroup.labels <- reactive({input$phyloSelect
-    if (input$phyloSelect == 1) {
+  outgroup.labels <- eventReactive(input$go, {input$phyloSelect
+    if (input$phyloSelect == "Aspergillaceae2018") {
       c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
-      else if (input$phyloSelect == 2) {
+      else if (input$phyloSelect == "Saccharomycotina2016") {
       c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
-      else if (input$phyloSelect == 3) {
+      else if (input$phyloSelect == "Aspergillaceae2018") {
       c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
       else {
