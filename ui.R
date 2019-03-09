@@ -30,12 +30,11 @@ shinyUI(fluidPage(
       actionButton("go", "Update"),
       hr(),
       # user instructions
-      p("• Upload a single column file with the taxa from the phylogeny that you would like a subtree for"),
-      p("• Ensure that genus and species name have an underscore between them (e.g., Aspergillus_flavus)"),
-      p("• Dependencies include phytools and ape which can be installed using the following commands:"),
-      code('install.packages(phytools, dep=T)'),
-      code('install.packages(ape, dep=T)'),
-      br(),
+      strong("Quick Start")
+      p("1) Select a phylogeny you want a subtree from"),
+      p("2) Upload a single column text file that have genus and species name separated by an underscore (e.g., Aspergillus_flavus)"),
+      p("3) Press the update button to display your desired subtree"),
+      p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
       br(),
       br(),
       helpText("treehouse is developed and maintained by Jacob L. Steenwyk")
