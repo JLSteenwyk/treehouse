@@ -30,13 +30,13 @@ shinyServer(function(input, output, session) {
 
   tree <- reactive({
     if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-      tree <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
+      tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-      tree <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+      tree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
     } else if (input$phyloSelect == "Saccharomycotina - placeholder") {
-      tree <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+      tree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
     } else 
-      tree <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
+      tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
   
   # ## select phylo reactively based on radiobuttons
