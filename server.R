@@ -37,7 +37,6 @@ shinyServer(function(input, output, session) {
       datasetInput <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
     } else 
       datasetInput <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
-      )
   }, ignoreNULL = FALSE)
   
   # ## select phylo reactively based on radiobuttons
