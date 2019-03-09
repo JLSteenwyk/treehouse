@@ -19,13 +19,9 @@ shinyUI(fluidPage(
   # Create a spot for the barplot
   sidebarLayout(
     sidebarPanel(
-      # radio buttons for which phylogeny a user wants to subset
-      radioButtons("phyloSelect", label = h4("tree options"), 
-        choices = list(
-          "Aspergillaceae - Steenwyk et al. 2018" = "Aspergillaceae2018", 
-          "Saccharomycotina - Shen et al. 2016" = "Saccharomycotina2016", 
-          "Saccharomycotina - placeholder" = "Saccharomycotina2018"),
-          selected = "Aspergillaceae2018"),
+      # drop down select menu to select phylogeny
+      selectInput("phyloSelect", label = h4("Species trees:"),
+        choices=c("Aspergillaceae - Steenwyk et al. 2018", "Saccharomycotina - Shen et al. 2016","Saccharomycotina - placeholder")
       # input file
       fileInput("file", label = h4("File input")),
       # reactive button
