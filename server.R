@@ -57,6 +57,7 @@ shinyServer(function(input, output, session) {
     tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
     # drop outgroup
     tree<-drop.tip(tree, outgroup.labels())
+    # prune taxa not of interest
     ingroup.labels<-as.vector(data()$V1)
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
     # plot tree
@@ -76,6 +77,7 @@ shinyServer(function(input, output, session) {
       tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
       # drop outgroup
       tree<-drop.tip(tree, outgroup.labels())
+      # prune taxa not of interest
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # plot tree
