@@ -11,6 +11,9 @@ library(shiny)
 library(phytools)
 library(ape)
 
+# set outgroup taxa for Aspergillaceae
+outgroup.labels_Aspergillaceae=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
   
@@ -33,10 +36,9 @@ shinyServer(function(input, output, session) {
     # read in tree
     tree<-read.tree("./Data/busco1668.nucl.part.tree")
     # root tree
-    outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
     tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
     # drop outgroup
-    tree<-drop.tip(tree, outgroup.labels)
+    tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
     ingroup.labels<-as.vector(data()$V1)
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
     
@@ -56,10 +58,9 @@ shinyServer(function(input, output, session) {
       pdf(file)
       tree<-read.tree("./Data/busco1668.nucl.part.tree")
       # root tree
-      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
-      tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
+      tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
       # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels)
+      tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       
@@ -84,10 +85,9 @@ shinyServer(function(input, output, session) {
       # read tree file in
       tree<-read.tree("./Data/busco1668.nucl.part.tree")
       # root tree
-      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
-      tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
+      tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
       # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels)
+      tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # write tree file out
