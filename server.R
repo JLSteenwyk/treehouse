@@ -29,8 +29,8 @@ shinyServer(function(input, output, session) {
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
       tree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
-    } else if (input$phyloSelect == "Saccharomycotina - placeholder") {
-      tree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
+    } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+      tree <- read.tree("./Data/Saccharomycotina_fig2_Shen_etal_2018.tre")
     } else 
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -43,8 +43,8 @@ shinyServer(function(input, output, session) {
       else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
       outgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
-      else if (input$phyloSelect == "Saccharomycotina - placeholder") {
-      outgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
+      else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+      outgroup.labels<-c("Saitoella_complicata","Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Fusarium_graminearum","Neurospora_crassa", "Sclerotinia_sclerotiorum", "Botrytis_cinerea", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae", "Coccidioides_immitis")
       }
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
