@@ -58,7 +58,7 @@ shinyServer(function(input, output, session) {
   ## function to create plot
   output$phyloPlot <- renderPlot({
     # root tree
-    tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
+    tree<-root(tree(), outgroup = outgroup.labels, resolve.root = TRUE)
     # drop outgroup
     tree<-drop.tip(tree, outgroup.labels)
     ingroup.labels<-as.vector(data()$V1)
