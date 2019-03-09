@@ -65,11 +65,12 @@ shinyServer(function(input, output, session) {
       
       ## plot tree
       # create tip label scaling feature
-      scaledLabels<-function(tree,...){
-        fsize<-36*par()$pin[2]/par()$pin[1]/Ntip(tree)
-        plotTree(tree,fsize=fsize,lwd=1,...)
-      }
-      scaledLabels(pruned.tree)
+      #scaledLabels<-function(tree,...){
+      #  fsize<-36*par()$pin[2]/par()$pin[1]/Ntip(tree)
+      #  plotTree(tree,fsize=fsize,lwd=1,...)
+      #}
+      #scaledLabels(pruned.tree)
+      plotTree(pruned.tree)
       add.scale.bar(cex = 0.7, font = 2, col = "black")
       dev.off()
     }

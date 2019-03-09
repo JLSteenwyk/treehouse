@@ -10,18 +10,18 @@ If you use this, please cite Steenwyk et al. 2018, bioRxiv (https://www.biorxiv.
 
 ### 1) Installing dependencies
 The shiny app assumes shiny, phytools, and ape are installed. To install these packages, execute the typical R command within the R environment.
-~~~~
+```
 install.packages("shiny", dep=T)
 install.packages("ape", dep=T)
 install.packages("phytools", dep=T)
-~~~~
+```
 
 ### 2) Opening up the shiny app
-After installing dependencies load shiny and run the shiny from its location on github
-~~~~
+After installing dependencies load shiny and run the shiny by executing the runGitHub() command
+```
 library(shiny)
 runGitHub("Aspergillaceae_subtree", "JLSteenwyk")
-~~~~
+```
 
 ### 3) Input list of taxa
 To view the evolutionary relationships between a set of taxa, click the "Browse..." button and select a file that has a single column of taxa names. For example, the file should look like the following:
