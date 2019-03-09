@@ -1,4 +1,4 @@
-# Tree pruner for the Aspergillus and Penicillium phylogeny
+# treehouse
 
 Aspergillus and Penicillium are genera of fungi who's species are of medical and technologic importance. To understand these traits, we have reconstructed the evolutionary history of Aspergillus and Penicillium species. 
 <br />
