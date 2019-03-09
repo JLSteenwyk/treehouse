@@ -26,6 +26,7 @@ shinyUI(fluidPage(
       fileInput("file", label = h4("File input")),
       # reactive button
       actionButton("go", "Update"),
+      hr(),
       # user instructions
       p("• Upload a single column file with the taxa from the phylogeny that you would like the subtree for."),
       p("• Ensure that genus and species name have an underscore between them (e.g., Aspergillus_flavus)"),
@@ -38,9 +39,9 @@ shinyUI(fluidPage(
       p("treehouse was developed and maintained by Jacob L. Steenwyk")
     ),
     mainPanel(
-    plotOutput("phyloPlot", width = "100%"),
-    downloadButton(outputId = "TreePlot", label = "Download Plot"),
-    downloadButton(outputId = "Newick", label = "Download Newick File")
+    plotOutput("phyloPlot", width = "100%")
+    # downloadButton(outputId = "TreePlot", label = "Download Plot"),
+    # downloadButton(outputId = "Newick", label = "Download Newick File")
     )
   )
 ))
