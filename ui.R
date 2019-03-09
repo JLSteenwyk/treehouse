@@ -30,7 +30,7 @@ shinyUI(fluidPage(
       actionButton("go", "Update"),
       hr(),
       # user instructions
-      strong("Quick Start"),
+      h5("Quick Start"),
       p("1) Select a phylogeny you want a subtree from"),
       p("2) Upload a single column text file that have genus and species name separated by an underscore (e.g., Aspergillus_flavus)"),
       p("3) Press the update button to display your desired subtree"),
