@@ -32,8 +32,8 @@ shinyServer(function(input, output, session) {
   datasetInput <- eventReactive(input$go, {
     switch(input$dataset,
       "Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre",
-      "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre",
-      "Aspergillaceae2018" = "hold"
+      "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+      #"Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
       )
   }, ignoreNULL = FALSE)
   
