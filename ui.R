@@ -22,9 +22,9 @@ shinyUI(fluidPage(
       # radio buttons for which phylogeny a user wants to subset
       radioButtons("phyloSelect", label = h4("tree options"), 
         choices = list(
-          "Aspergillaceae - Steenwyk et al. 2018" = 1, 
-          "Saccharomycotina - Shen et al. 2016" = 2, 
-          "Saccharomycotina - placeholder" = 3),
+          "Aspergillaceae - Steenwyk et al. 2018" = "Aspergillaceae2018", 
+          "Saccharomycotina - Shen et al. 2016" = "Saccharomycotina2016", 
+          "Saccharomycotina - placeholder" = "Saccharomycotina2018"),
           selected = 1),
       # input file
       fileInput("file", label = h3("File input")),

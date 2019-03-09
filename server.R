@@ -14,8 +14,8 @@ library(phytools)
 library(ape)
 
 ## Set default tree and outgroup labels
-tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
-outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+#tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+#outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       
 
 # Define server logic
@@ -34,7 +34,7 @@ shinyServer(function(input, output, session) {
     data()$V1
   }, include.colnames=FALSE)
   
-  ## radio button for phylogeny of choice
+  ## select phylo reactively based on radiobuttons
   phyloInput <- reactive({input$phyloSelect
     if (input$phyloSelect == 1) {
       tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
