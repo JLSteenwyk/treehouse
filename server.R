@@ -29,11 +29,11 @@ shinyServer(function(input, output, session) {
     })
 
   datasetInput <- reactive({
-    if (input$dataset == "Aspergillaceae - Steenwyk et al. 2018") {
+    if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
       datasetInput <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
-    } else if (input$dataset == "Saccharomycotina - Shen et al. 2016") {
+    } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
       datasetInput <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
-    } else if (input$dataset == "Saccharomycotina - placeholder") {
+    } else if (input$phyloSelect == "Saccharomycotina - placeholder") {
       datasetInput <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
     } else 
       datasetInput <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
