@@ -28,32 +28,31 @@ shinyServer(function(input, output, session) {
     return(taxa.list)
     })
 
-  datasetInput <- reactive({
+  tree <- reactive({
     if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-      datasetInput <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
+      tree <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
     } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-      datasetInput <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+      tree <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
     } else if (input$phyloSelect == "Saccharomycotina - placeholder") {
-      datasetInput <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
+      tree <- "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre"
     } else 
-      datasetInput <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
+      tree <- "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre"
   })
   
   # ## select phylo reactively based on radiobuttons
   # tree <- eventReactive(input$go, {input$phyloSelect
-  #   if (input$phyloSelect == "Aspergillaceae2018") {
-  #     t<-read.tree(datasetInput())
+  #   if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
+  #     tree<-read.tree(datasetInput())
   #     }
   #     else if (input$phyloSelect == "Saccharomycotina2016") {
-  #     t<-read.tree(datasetInput())
+  #     tree<-read.tree(datasetInput())
   #     }
   #     else if (input$phyloSelect == "Aspergillaceae2018") {
-  #     t<-read.tree(datasetInput())
+  #     tree<-read.tree(datasetInput())
   #     }
   #     else {
-  #     t<-read.tree(datasetInput())
+  #     tree<-read.tree(datasetInput())
   #     }
-  #   load(t)
   #   })
 
   # ## select outgroup labels reactively based on radiobuttons
