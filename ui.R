@@ -22,7 +22,7 @@ shinyUI(fluidPage(
       # drop down select menu to select phylogeny
       selectInput("phyloSelect", "Species trees:",
         choices=c("Aspergillaceae - Steenwyk et al. 2018",
-                  "Saccharomycotina - Shen et al. 2016"
+                  "Saccharomycotina - Shen et al. 2016",
                   "Saccharomycotina - placeholder")),
       # input file
       fileInput("file", "File input"),
