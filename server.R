@@ -15,8 +15,6 @@ library(ape)
 
 ## Set outgroup taxa
 # set outgroup taxa for Aspergillaceae
-outgroup.labels_Aspergillaceae=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
-
 
 
 # Define server logic
@@ -30,7 +28,7 @@ shinyServer(function(input, output, session) {
     return(taxa.list)
     })
   
-  ## print out contents of data
+  ## ability to print out contents of data
   output$contents <- renderTable({
     data()$V1
   }, include.colnames=FALSE)
@@ -39,26 +37,29 @@ shinyServer(function(input, output, session) {
   phyloInput <- reactive({input$phyloSelect
     if (input$phyloSelect == 1) {
       tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      
       }
       else if (input$phyloSelect == 2) {
       tree<-read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
+      outgroup.labels=c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
       else if (input$phyloSelect == 3) {
       tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
       else {
       tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
     })
   
   ## function to create plot
   output$phyloPlot <- renderPlot({
-    # read in tree
-    tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     # root tree
-    tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
+    tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
     # drop outgroup
-    tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
+    tree<-drop.tip(tree, outgroup.labels)
     ingroup.labels<-as.vector(data()$V1)
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
     
@@ -76,11 +77,10 @@ shinyServer(function(input, output, session) {
     content = function(file){
       # open the pdf
       pdf(file)
-      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       # root tree
-      tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
+      tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
       # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
+      tree<-drop.tip(tree, outgroup.labels)
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # plot tree
@@ -96,12 +96,10 @@ shinyServer(function(input, output, session) {
     filename=function() {
       paste("Aspergillaceae_subset-",Sys.Date(),".tre",sep= "")},
     content=function(file){
-      # read tree file in
-      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       # root tree
-      tree<-root(tree, outgroup = outgroup.labels_Aspergillaceae, resolve.root = TRUE)
+      tree<-root(tree, outgroup = outgroup.labels, resolve.root = TRUE)
       # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels_Aspergillaceae)
+      tree<-drop.tip(tree, outgroup.labels)
       ingroup.labels<-as.vector(data()$V1)
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # write tree file out
