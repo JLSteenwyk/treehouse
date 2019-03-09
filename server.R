@@ -28,6 +28,13 @@ shinyServer(function(input, output, session) {
     taxa.list<-read.table(inFile$datapath)
     return(taxa.list)
     })
+
+  datasetInput <- eventReactive(input$go, {
+    switch(input$dataset,
+           "Aspergillaceae2018" = "./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre",
+           "Saccharomycotina2016" = "./Data/Saccharomycotina_fig3_Shen_etal_2016.tre",
+          )
+  }, ignoreNULL = FALSE)
   
   ## ability to print out contents of data
   output$contents <- renderTable({
@@ -37,16 +44,16 @@ shinyServer(function(input, output, session) {
   ## select phylo reactively based on radiobuttons
   tree <- reactive({input$phyloSelect
     if (input$phyloSelect == "Aspergillaceae2018") {
-      read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      read.tree(datasetInput())
       }
       else if (input$phyloSelect == "Saccharomycotina2016") {
-      read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
+      read.tree(datasetInput())
       }
       else if (input$phyloSelect == "Aspergillaceae2018") {
-      read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      read.tree(datasetInput())
       }
       else {
-      read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      read.tree(datasetInput())
       }
     })
 
