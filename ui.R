@@ -20,7 +20,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       # radio buttons for which phylogeny a user wants to subset
-      radioButtons("phyloSelect", label = h4("tree options"), 
+      radioButtons("phyloSelect", "PhyloSelect", label = h4("tree options"), 
         choices = list(
           "Aspergillaceae - Steenwyk et al. 2018" = "Aspergillaceae2018", 
           "Saccharomycotina - Shen et al. 2016" = "Saccharomycotina2016", 
