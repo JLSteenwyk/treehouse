@@ -35,22 +35,34 @@ shinyServer(function(input, output, session) {
   }, include.colnames=FALSE)
   
   ## select phylo reactively based on radiobuttons
-  phyloInput <- reactive({input$phyloSelect
+  tree <- reactive({input$phyloSelect
     if (input$phyloSelect == 1) {
-      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
-      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       }
       else if (input$phyloSelect == 2) {
-      tree<-read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
-      outgroup.labels=c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
+      read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
       }
       else if (input$phyloSelect == 3) {
-      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
-      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       }
       else {
-      tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
-      outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      }
+    })
+
+  ## select outgroup labels reactively based on radiobuttons
+  outgroup.labels <- reactive({input$phyloSelect
+    if (input$phyloSelect == 1) {
+      c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      }
+      else if (input$phyloSelect == 2) {
+      c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
+      }
+      else if (input$phyloSelect == 3) {
+      c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      }
+      else {
+      c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
     })
   
