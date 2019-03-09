@@ -25,7 +25,7 @@ shinyUI(fluidPage(
           "Aspergillaceae - Steenwyk et al. 2018" = "Aspergillaceae2018", 
           "Saccharomycotina - Shen et al. 2016" = "Saccharomycotina2016", 
           "Saccharomycotina - placeholder" = "Saccharomycotina2018"),
-          selected = 1),
+          selected = "Aspergillaceae2018"),
       # input file
       fileInput("file", label = h4("File input")),
       # reactive button
