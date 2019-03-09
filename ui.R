@@ -29,7 +29,7 @@ shinyUI(fluidPage(
       # input file
       fileInput("file", label = h4("File input")),
       # reactive button
-      actionButton("go", "Go"),
+      actionButton("go", "Update"),
       # user instructions
       p("• Upload a single column file with the taxa from the phylogeny that you would like the subtree for."),
       p("• Ensure that genus and species name have an underscore between them (e.g., Aspergillus_flavus)"),
