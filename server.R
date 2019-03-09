@@ -14,8 +14,8 @@ library(phytools)
 library(ape)
 
 ## Set default tree and outgroup labels
-#tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
-#outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+tree<-read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+outgroup.labels=c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       
 
 # Define server logic
@@ -36,13 +36,13 @@ shinyServer(function(input, output, session) {
   
   ## select phylo reactively based on radiobuttons
   tree <- reactive({input$phyloSelect
-    if (input$phyloSelect == 1) {
+    if (input$phyloSelect == "Aspergillaceae2018") {
       read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       }
-      else if (input$phyloSelect == 2) {
+      else if (input$phyloSelect == "Saccharomycotina2016") {
       read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
       }
-      else if (input$phyloSelect == 3) {
+      else if (input$phyloSelect == "Aspergillaceae2018") {
       read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
       }
       else {
