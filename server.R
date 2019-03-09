@@ -38,22 +38,6 @@ shinyServer(function(input, output, session) {
     } else 
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
-  
-  # ## select phylo reactively based on radiobuttons
-  # tree <- eventReactive(input$go, {input$phyloSelect
-  #   if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-  #     tree<-read.tree(datasetInput())
-  #     }
-  #     else if (input$phyloSelect == "Saccharomycotina2016") {
-  #     tree<-read.tree(datasetInput())
-  #     }
-  #     else if (input$phyloSelect == "Aspergillaceae2018") {
-  #     tree<-read.tree(datasetInput())
-  #     }
-  #     else {
-  #     tree<-read.tree(datasetInput())
-  #     }
-  #   })
 
   ## select outgroup labels reactively based on radiobuttons
   outgroup.labels <- eventReactive(input$go, {input$phyloSelect
@@ -64,7 +48,7 @@ shinyServer(function(input, output, session) {
       outgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
       else if (input$phyloSelect == "Saccharomycotina - placeholder") {
-      outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      outgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
