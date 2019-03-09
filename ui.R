@@ -14,8 +14,6 @@ shinyUI(fluidPage(
   # generate a page title
   titlePanel("treehouse - under development - do not use"),
 
-  # input file
-  fileInput("file", label = h3("File input")),
   hr(),
   
   # Create a spot for the barplot
@@ -27,6 +25,8 @@ shinyUI(fluidPage(
       radioButtons("phyloSelect", label = h3("tree options"), 
         choices = list("Aspergillaceae - Steenwyk et al. 2018" = 1, "Saccharomycotina - Shen et al. 2016" = 2, "Saccharomycotina - placeholder" = 3),
         selected = 1),
+      # input file
+      fileInput("file", label = h3("File input"))
       # user instructions
       p("• Upload a single column file with the taxa from the phylogeny that you would like the subtree for."),
       p("• Ensure that genus and species name have an underscore between them (e.g., Aspergillus_flavus)"),
