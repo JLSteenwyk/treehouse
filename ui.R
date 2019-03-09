@@ -35,8 +35,7 @@ shinyUI(fluidPage(
       p("2) Upload a single column text file that have genus and species name separated by an underscore (e.g., Aspergillus_flavus)"),
       p("3) Press the update button to display your desired subtree"),
       p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
-      br(),
-      br(),
+      hr(),
       helpText("treehouse is developed and maintained by Jacob L. Steenwyk")
     ),
     
