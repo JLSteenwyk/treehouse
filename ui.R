@@ -42,7 +42,7 @@ shinyUI(fluidPage(
     downloadButton(outputId = "TreePlot", label = "Download Plot"),
     downloadButton(outputId = "Newick", label = "Download Newick File"),
     hr(),
-    uiOutput("citationText")
+    textOutput("citationText")
     )
   )
 ))
