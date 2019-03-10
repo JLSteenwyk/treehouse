@@ -13,6 +13,9 @@ library(shiny)
 library(phytools)
 library(ape)
 
+## Read in taxa table
+Taxa_names<-read.table("./Data/Taxa_names.txt", header=T, fill=TRUE)
+
 # Define server logic
 shinyServer(function(input, output, session) {
   
@@ -59,9 +62,21 @@ shinyServer(function(input, output, session) {
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
         paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
-        paste("If you use this subtree, please cite: Shen et al. 2016, Cell. doi: 10.1016/j.cell.2018.10.023")
+        paste("If you use this subtree, please cite: Shen et al. 2018, Cell. doi: 10.1016/j.cell.2018.10.023")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
+    })
+
+  ## display table of taxa names
+  output$taxaTable <- renderTable({
+      if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
+        taxaTable<-Taxa_names$Genus_Species_Steenwyk2018
+      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
+        taxaTable<-Taxa_names$Genus_Species_Shen2016
+      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+        taxaTable<-Taxa_names$Genus_Species_Shen2018
+      } else 
+        taxaTable<-Taxa_names$Genus_Species_Steenwyk2018
     })
   
   ## function to create plot
