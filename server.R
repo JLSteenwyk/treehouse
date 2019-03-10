@@ -53,15 +53,15 @@ shinyServer(function(input, output, session) {
     })
 
   ## display proper citation based on associated manuscript
-  citationText <- renderText({
+  citationText <- eventReactive({
       if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
+        renderUI("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-        paste("If you use this subtree, please cite: Shen et al. 2016, G3")
+        renderUI("If you use this subtree, please cite: Shen et al. 2016, G3")
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
-        paste("If you use this subtree, please cite: Shen et al. 2016, Cell")
+        renderUI("If you use this subtree, please cite: Shen et al. 2016, Cell")
       } else 
-        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
+        renderUI("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
   
   ## function to create plot
