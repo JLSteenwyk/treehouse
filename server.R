@@ -67,13 +67,17 @@ shinyServer(function(input, output, session) {
   ## display table of taxa names
   df_subset <- eventReactive(input$go, {input$phyloSelect
       if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-        a<-read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Steenwyk2018
+        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018)
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-        a<-read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Shen2016
+        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2016
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
-        a<-read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Shen2018
+        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2018
       } else 
-        a<-read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Steenwyk2018
+        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018
+      a<-data.frame(a[!is.na(a),])
+      # replace column name to "full list of taxa"
+      colnames(a)[1]<-"full list of taxa"
+      # return to df_subset
       return(a)
     })
   output$taxaTable <- renderTable(df_subset())
