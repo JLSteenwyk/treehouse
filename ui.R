@@ -34,7 +34,7 @@ shinyUI(fluidPage(
       p("3) Press the update button to display your desired subtree"),
       p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
       hr(),
-      helpText("treehouse is developed and maintained by Jacob L. Steenwyk")
+      helpText("treehouse is developed and maintained by ", a("Jacob L. Steenwyk",href="https://jlsteenwyk.github.io/"))
     ),
     
     mainPanel(
