@@ -11,8 +11,7 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  # generate a page title
-  tags$iframe(style="height:200px; width:100%", src="https://github.com/JLSteenwyk/treehouse/blob/master/logo/treehouse_logo.pdf"),
+  mainPanel(img(src="./logo/treehouse_logo.pdf", align="center"),
   h4("Obtain subtrees from our treehouse"), 
   hr(),
   
