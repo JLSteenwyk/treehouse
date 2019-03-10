@@ -12,7 +12,7 @@ library(shiny)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   # display logo
-  titlePanel(title=div(img(src="treehouse_logo.pdf",""))), 
+  titlePanel(title=div(img(src="treehouse_logo.png",""))), 
   hr(),
   # Create a spot for the choices
   sidebarLayout(
