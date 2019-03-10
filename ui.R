@@ -38,7 +38,7 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-    plotOutput("phyloPlot", width = "100%", height = "500px"),
+    plotOutput("phyloPlot", width = "100%", height = "100%"),
     downloadButton(outputId = "TreePlot", label = "Download Plot"),
     downloadButton(outputId = "Newick", label = "Download Newick File"),
     hr(),
