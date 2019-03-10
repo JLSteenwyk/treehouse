@@ -11,10 +11,12 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  mainPanel(img(src="./logo/treehouse_logo.pdf", align="center"),
-  h4("Obtain subtrees from our treehouse"), 
-  hr(),
-  
+  # display logo
+  mainPanel(
+    img(src="./logo/treehouse_logo.pdf", align="center"),
+    h4("Obtain subtrees from our treehouse"), 
+    hr(),
+  ),
   # Create a spot for the barplot
   sidebarLayout(
     sidebarPanel(
