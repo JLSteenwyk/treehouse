@@ -13,9 +13,6 @@ library(shiny)
 library(phytools)
 library(ape)
 
-## Read in taxa table
-Taxa_names<-read.table("./Data/Taxa_names.txt", header=T, fill=TRUE)
-
 # Define server logic
 shinyServer(function(input, output, session) {
   
@@ -70,13 +67,13 @@ shinyServer(function(input, output, session) {
   ## display table of taxa names
   df_subset <- eventReactive(input$go, {input$phyloSelect
       if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-        a<-Taxa_names$Genus_Species_Steenwyk2018
+        a<-read.table("Desktop/GITHUB/treehouse/Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Steenwyk2018
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-        a<-Taxa_names$Genus_Species_Shen2016
+        a<-read.table("Desktop/GITHUB/treehouse/Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Shen2016
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
-        a<-Taxa_names$Genus_Species_Shen2018
+        a<-read.table("Desktop/GITHUB/treehouse/Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Shen2018
       } else 
-        a<-Taxa_names$Genus_Species_Steenwyk2018
+        a<-read.table("Desktop/GITHUB/treehouse/Data/Taxa_names.txt", header=T, sep='\t', fill=T)$Genus_Species_Steenwyk2018
       return(a)
     })
   output$taxaTable <- renderTable(df_subset())
