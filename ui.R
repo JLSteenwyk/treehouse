@@ -16,7 +16,7 @@ shinyUI(fluidPage(
     img(src="./logo/treehouse_logo.pdf", align="center"),
     h4("Obtain subtrees from our treehouse"), 
     hr(),
-  ),
+  )
   # Create a spot for the barplot
   sidebarLayout(
     sidebarPanel(
