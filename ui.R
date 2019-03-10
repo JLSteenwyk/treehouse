@@ -12,12 +12,10 @@ library(shiny)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   # display logo
-  mainPanel(
-    img(src="./logo/treehouse_logo.pdf", align="center"),
-    h4("Obtain subtrees from our treehouse"), 
-    hr()
-  ),
-  # Create a spot for the barplot
+  img(src="./logo/treehouse_logo.pdf", align="center"),
+  h4("Obtain subtrees from our treehouse"), 
+  hr()
+  # Create a spot for the choices
   sidebarLayout(
     sidebarPanel(
       # drop down select menu to select phylogeny
