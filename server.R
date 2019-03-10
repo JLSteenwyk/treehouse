@@ -68,16 +68,18 @@ shinyServer(function(input, output, session) {
     })
 
   ## display table of taxa names
-  output$taxaTable <- renderTable({
+  df_subset <- eventReactive(input$go, {input$phyloSelect
       if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-        Taxa_names$Genus_Species_Steenwyk2018
+        a<-Taxa_names$Genus_Species_Steenwyk2018
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-        Taxa_names$Genus_Species_Shen2016
+        a<-Taxa_names$Genus_Species_Shen2016
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
-        Taxa_names$Genus_Species_Shen2018
+        a<-Taxa_names$Genus_Species_Shen2018
       } else 
-        Taxa_names$Genus_Species_Steenwyk2018
+        a<-Taxa_names$Genus_Species_Steenwyk2018
+      return(a)
     })
+  output$taxaTable <- renderTable(df_subset())
   
   ## function to create plot
   output$phyloPlot <- renderPlot({
