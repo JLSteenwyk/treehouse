@@ -76,9 +76,11 @@ shinyServer(function(input, output, session) {
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018)
       a<-data.frame(a[!is.na(a),])
       # replace column name to "full list of taxa"
-      colnames(a)[1]<-"full list of taxa for possible subtree"
+      colnames(a)[1]<-"temp"
       # remove values that match outgroup.labels values
-      a<-a[ ! a$"full list of taxa for possible subtree" %in% outgroup.labels(), ]
+      a<-data.frame(a[ ! a$"temp" %in% outgroup.labels(), ])
+      # replace column name to "full list of taxa"
+      colnames(a)[1]<-"full list of taxa for possible subtree"
       # return to df_subset
       return(a)
     })
