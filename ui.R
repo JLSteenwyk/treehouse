@@ -23,7 +23,7 @@ shinyUI(fluidPage(
                   "Saccharomycotina - Shen et al. 2016",
                   "Saccharomycotina - Shen et al. 2018")),
       # input file
-      fileInput("file", "File input"),
+      fileInput("file", "File input:"),
       # reactive button
       actionButton("go", "Update"),
       hr(),
