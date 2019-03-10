@@ -1,5 +1,3 @@
-# treehouse
-
 ![](www/treehouse_logo.png)
 
 Research groups I am involved in create large phylogenies and we hope our analyses can provide the evolutionary background to inform other research group's projects. However, we recognize our choice in taxon sampling may provide more information than a researcher needs. To this end, we have created treehouse, which produces a subtree from a set of taxa. For example, if we constructed a phylogeny of 100 taxa and your research project involves 20 taxa, you can obtain a subtree of these 20 taxa from the published 100 taxa phylogeny. 
