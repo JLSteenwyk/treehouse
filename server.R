@@ -55,11 +55,11 @@ shinyServer(function(input, output, session) {
   ## display proper citation based on associated manuscript
   output$citationText <- renderText({
       if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
+        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-        paste("If you use this subtree, please cite: Shen et al. 2016, G3")
+        paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
-        paste("If you use this subtree, please cite: Shen et al. 2016, Cell")
+        paste("If you use this subtree, please cite: Shen et al. 2016, Cell. doi: 10.1016/j.cell.2018.10.023")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
