@@ -5,7 +5,7 @@ Research groups I am involved in create large phylogenies and we hope our analys
 ## Current phylogenies available
 • Aspergillus and Penicillium species (Aspergillaceae) - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
 • Saccharomycotina - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)<br />
-• Saccharomycotina - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br />
+• Saccharomycotina - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br /><br />
 Please remember that these phylogenies are hypotheses; while most branches are robustly supported, a few show substantial conflict and should be treated with caution.
 
 ## Quick Start
