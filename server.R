@@ -70,13 +70,13 @@ shinyServer(function(input, output, session) {
   ## display table of taxa names
   output$taxaTable <- renderTable({
       if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
-        taxaTable<-Taxa_names$Genus_Species_Steenwyk2018
+        Taxa_names$Genus_Species_Steenwyk2018
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
-        taxaTable<-Taxa_names$Genus_Species_Shen2016
+        Taxa_names$Genus_Species_Shen2016
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
-        taxaTable<-Taxa_names$Genus_Species_Shen2018
+        Taxa_names$Genus_Species_Shen2018
       } else 
-        taxaTable<-Taxa_names$Genus_Species_Steenwyk2018
+        Taxa_names$Genus_Species_Steenwyk2018
     })
   
   ## function to create plot
