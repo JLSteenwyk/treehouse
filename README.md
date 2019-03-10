@@ -20,7 +20,7 @@ install.packages("phytools", dep=T)
 ### 2) Opening up the shiny app
 After installing dependencies load shiny and run the shiny by executing the runGitHub() command
 ```
-shiny:: runGitHub("treehouse", "JLSteenwyk")
+shiny::runGitHub("treehouse", "JLSteenwyk")
 ```
 
 ### 3) Input list of taxa
