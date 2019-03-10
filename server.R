@@ -53,7 +53,7 @@ shinyServer(function(input, output, session) {
     })
 
   ## display proper citation based on associated manuscript
-  citationText <- renderText({
+  output$citationText <- renderText({
       if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
       } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
