@@ -24,6 +24,7 @@ shinyServer(function(input, output, session) {
     return(taxa.list)
     })
 
+  ## read in tree based on selected tree
   tree <- eventReactive(input$go, {
     if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
@@ -35,7 +36,7 @@ shinyServer(function(input, output, session) {
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
 
-  ## select outgroup labels reactively based on radiobuttons
+  ## select outgroup labels based on selected tree
   outgroup.labels <- eventReactive(input$go, {input$phyloSelect
     if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
@@ -49,6 +50,18 @@ shinyServer(function(input, output, session) {
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
+    })
+
+  ## display proper citation based on associated manuscript
+  citationText <- renderText({
+      if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
+        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
+      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
+        paste("If you use this subtree, please cite: Shen et al. 2016, G3")
+      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+        paste("If you use this subtree, please cite: Shen et al. 2016, Cell")
+      } else 
+        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
   
   ## function to create plot
