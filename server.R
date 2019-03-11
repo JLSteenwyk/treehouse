@@ -26,9 +26,9 @@ shinyServer(function(input, output, session) {
 
   ## read in tree based on selected tree
   tree <- eventReactive(input$go, {
-    if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
+    if (input$phyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
-    } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
+    } else if (input$phyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
       tree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
     } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
       tree <- read.tree("./Data/Saccharomycotina_fig2_Shen_etal_2018.tre")
@@ -38,13 +38,13 @@ shinyServer(function(input, output, session) {
 
   ## select outgroup labels based on selected tree
   outgroup.labels <- eventReactive(input$go, {input$phyloSelect
-    if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
+    if (input$phyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
-      else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
+      else if (input$phyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
       outgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
-      else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+      else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
       outgroup.labels<-c("Saitoella_complicata","Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Fusarium_graminearum","Neurospora_crassa", "Sclerotinia_sclerotiorum", "Botrytis_cinerea", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae", "Coccidioides_immitis")
       }
       else {
@@ -54,11 +54,11 @@ shinyServer(function(input, output, session) {
 
   ## display proper citation based on associated manuscript
   output$citationText <- renderText({
-      if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
+      if (input$phyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
-      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
+      } else if (input$phyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
         paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
-      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+      } else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
         paste("If you use this subtree, please cite: Shen et al. 2018, Cell. doi: 10.1016/j.cell.2018.10.023")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
@@ -66,11 +66,11 @@ shinyServer(function(input, output, session) {
 
   ## display table of taxa names
   df_subset <- eventReactive(input$go, {input$phyloSelect
-      if (input$phyloSelect == "Aspergillaceae - Steenwyk et al. 2018") {
+      if (input$phyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018)
-      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2016") {
+      } else if (input$phyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2016)
-      } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+      } else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2018)
       } else 
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018)
