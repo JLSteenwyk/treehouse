@@ -19,9 +19,9 @@ shinyUI(fluidPage(
     sidebarPanel(
       # drop down select menu to select phylogeny
       selectInput("phyloSelect", "Species trees:",
-        choices=c("Aspergillaceae - Steenwyk et al. 2018",
-                  "Saccharomycotina - Shen et al. 2016",
-                  "Saccharomycotina - Shen et al. 2018")),
+        choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018",
+                  "Saccharomycotina, 86 taxa - Shen et al. 2016",
+                  "Saccharomycotina, 332 taxa - Shen et al. 2018")),
       # input file
       fileInput("file", "File input:"),
       # reactive button

@@ -3,9 +3,9 @@
 Research groups I am involved in create large phylogenies and we hope our analyses can provide the evolutionary background to inform other research group's projects. However, we recognize our choice in taxon sampling may provide more information than a researcher needs. To this end, we have created treehouse, which produces a subtree from a set of taxa. For example, if we constructed a phylogeny of 100 taxa and your research project involves 20 taxa, you can obtain a subtree of these 20 taxa from the published 100 taxa phylogeny. 
 <br />
 ## Current phylogenies available
-• Aspergillus and Penicillium species (Aspergillaceae) - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
-• Saccharomycotina - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)<br />
-• Saccharomycotina - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br /><br />
+• Aspergillus and Penicillium species (Aspergillaceae), 81 taxa - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
+• Saccharomycotina, 86 taxa - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)<br />
+• Saccharomycotina, 332 taxa - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br /><br />
 Please remember that these phylogenies are hypotheses; while most branches are robustly supported, a few show substantial conflict and should be treated with caution.
 
 ## Quick Start
