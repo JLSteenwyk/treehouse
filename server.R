@@ -30,7 +30,7 @@ shinyServer(function(input, output, session) {
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$phyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
       tree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
-    } else if (input$phyloSelect == "Saccharomycotina - Shen et al. 2018") {
+    } else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
       tree <- read.tree("./Data/Saccharomycotina_fig2_Shen_etal_2018.tre")
     } else 
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
