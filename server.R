@@ -50,7 +50,7 @@ shinyServer(function(input, output, session) {
       outgroup.labels<-c("Saitoella_complicata","Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Fusarium_graminearum","Neurospora_crassa", "Sclerotinia_sclerotiorum", "Botrytis_cinerea", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae", "Coccidioides_immitis")
       }
       else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
-      outgroup.labels<-c("")
+      outgroup.labels<-c("BAM","BAQ","BAG","BAH","BAL","AMH","CEG","CEI","BAN","BAP")
       }
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
@@ -99,8 +99,12 @@ shinyServer(function(input, output, session) {
   output$phyloPlot <- renderPlot({
     # root tree
     tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE) 
-    # drop outgroup
-    tree<-drop.tip(tree, outgroup.labels())
+    # drop outgropu if the tree is not Peter et al 2018 Saccharomyces cerevisiae tree
+    if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
+      next
+    } else
+      # drop outgroup
+      tree<-drop.tip(tree, outgroup.labels())
     # prune taxa not of interest
     ingroup.labels<-as.vector(data()$V1)
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
