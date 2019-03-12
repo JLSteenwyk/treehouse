@@ -5,7 +5,9 @@ Research groups I am involved in create large phylogenies and we hope our analys
 ## Current phylogenies available
 • Aspergillus and Penicillium species (Aspergillaceae), 81 taxa - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
 • Saccharomycotina, 86 taxa - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)<br />
-• Saccharomycotina, 332 taxa - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br /><br />
+• Saccharomycotina, 332 taxa - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br />
+• Saccharomyces cerevisiae, 1,011 strains - [Peter, et al. 2018](https://www.nature.com/articles/s41586-018-0030-5)<br />
+<br />
 Please remember that these phylogenies are hypotheses; while most branches are robustly supported, a few show substantial conflict and should be treated with caution.
 
 ## Quick Start
