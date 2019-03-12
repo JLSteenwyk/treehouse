@@ -97,8 +97,10 @@ shinyServer(function(input, output, session) {
   
   ## function to create plot
   output$phyloPlot <- renderPlot({
-    # root tree
-    tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+    if (outgroup.labels() != ""){
+      # root tree
+      tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+    }
     # drop outgroup
     tree<-drop.tip(tree, outgroup.labels())
     # prune taxa not of interest
