@@ -32,6 +32,8 @@ shinyServer(function(input, output, session) {
       tree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
     } else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
       tree <- read.tree("./Data/Saccharomycotina_fig2_Shen_etal_2018.tre")
+    } else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
+      tree <- read.tree("./Data/Saccharomyces_cerevisiae_fig1_Peter_etal_2018.tre")  
     } else 
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -47,6 +49,9 @@ shinyServer(function(input, output, session) {
       else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
       outgroup.labels<-c("Saitoella_complicata","Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Fusarium_graminearum","Neurospora_crassa", "Sclerotinia_sclerotiorum", "Botrytis_cinerea", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae", "Coccidioides_immitis")
       }
+      else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
+      outgroup.labels<-c("")
+      }
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -60,6 +65,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
       } else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
         paste("If you use this subtree, please cite: Shen et al. 2018, Cell. doi: 10.1016/j.cell.2018.10.023")
+      } else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
+        paste("If you use this subtree, please cite: Peter et al. 2018, Nature. doi: 10.1038/s41586-018-0030-5")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
@@ -72,6 +79,8 @@ shinyServer(function(input, output, session) {
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2016)
       } else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2018)
+      } else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
+        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Strain_Peter2018)
       } else 
         a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018)
       a<-data.frame(a[!is.na(a),])
