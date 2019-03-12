@@ -97,25 +97,16 @@ shinyServer(function(input, output, session) {
   
   ## function to create plot
   output$phyloPlot <- renderPlot({
-    # if there are no outgroup labels
-    if (outgroup.labels() == "") {
-      # prune taxa not of interest
-      ingroup.labels<-as.vector(data()$V1)
-      pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-      # plot tree
-      plotTree(pruned.tree)
-      add.scale.bar(cex = 0.7, font = 2, col = "black")
-    } else
-      # root tree
-      tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
-      # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels())
-      # prune taxa not of interest
-      ingroup.labels<-as.vector(data()$V1)
-      pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-      # plot tree
-      plotTree(pruned.tree)
-      add.scale.bar(cex = 0.7, font = 2, col = "black")
+    # root tree
+    tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+    # drop outgroup
+    tree<-drop.tip(tree, outgroup.labels())
+    # prune taxa not of interest
+    ingroup.labels<-as.vector(data()$V1)
+    pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
+    # plot tree
+    plotTree(pruned.tree)
+    add.scale.bar(cex = 0.7, font = 2, col = "black")
   })
   
   ## save pdf
@@ -126,25 +117,16 @@ shinyServer(function(input, output, session) {
     content = function(file){
       # open the pdf
       pdf(file)
-      # if there are no outgroup labels
-      if (outgroup.labels() == "") {
-        # prune taxa not of interest
-        ingroup.labels<-as.vector(data()$V1)
-        pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-        # plot tree
-        plotTree(pruned.tree)
-        add.scale.bar(cex = 0.7, font = 2, col = "black")
-      } else
-        # root tree
-        tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
-        # drop outgroup
-        tree<-drop.tip(tree, outgroup.labels())
-        # prune taxa not of interest
-        ingroup.labels<-as.vector(data()$V1)
-        pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
-        # plot tree
-        plotTree(pruned.tree)
-        add.scale.bar(cex = 0.7, font = 2, col = "black")
+      # root tree
+      tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+      # drop outgroup
+      tree<-drop.tip(tree, outgroup.labels())
+      # prune taxa not of interest
+      ingroup.labels<-as.vector(data()$V1)
+      pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
+      # plot tree
+      plotTree(pruned.tree)
+      add.scale.bar(cex = 0.7, font = 2, col = "black")
       dev.off()
     }
   )
