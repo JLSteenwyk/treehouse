@@ -99,12 +99,8 @@ shinyServer(function(input, output, session) {
   output$phyloPlot <- renderPlot({
     # root tree
     tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE) 
-    # drop outgropu if the tree is not Peter et al 2018 Saccharomyces cerevisiae tree
-    if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
-      next
-    } else
-      # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels())
+    # drop outgroup
+    tree<-drop.tip(tree, outgroup.labels())
     # prune taxa not of interest
     ingroup.labels<-as.vector(data()$V1)
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
