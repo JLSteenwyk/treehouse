@@ -58,7 +58,7 @@ shinyUI(fluidPage(
       )
     # close tabPanel, treehouseDB
     ),
-    tabPanel("Test",
+    tabPanel("Development testing - do not use",
     #close tabPanel, Test
       # display logo
       titlePanel(title=div(img(src="treehouse_logo.png",""))), 
