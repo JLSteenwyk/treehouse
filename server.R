@@ -162,7 +162,7 @@ shinyServer(function(input, output, session) {
   userTree <- eventReactive(input$userGO, {
     req(input$treeFile)
     inFile <- input$treeFile
-    userTree <- read.tree(inFile$datafile)
+    userTree <- read.tree(inFile$datapath)
   })
 
   ## function to create plot
