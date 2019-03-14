@@ -105,6 +105,5 @@ shinyUI(fluidPage(
       )
     # close tabPanel, treehouseDB
     )
-    )
   )
 ))
