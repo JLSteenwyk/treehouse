@@ -89,11 +89,9 @@ shinyUI(fluidPage(
           plotOutput("userPhyloPlot", width = "100%"),
           # download buttons
           downloadButton(outputId = "userTreePlot", label = "Download Plot"),
-          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          downloadButton(outputId = "userNewick", label = "Download Newick File"),
           hr(),
-          textOutput("citationText"),
-          hr(),
-          tableOutput('taxaTable')
+          p("testing new user function"),
           # close mainPanel
           )
       # close sidebarLayout
