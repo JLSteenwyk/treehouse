@@ -156,13 +156,14 @@ shinyServer(function(input, output, session) {
     inFile <- input$fileUser
     taxa.list<-read.table(inFile$datapath)
     return(taxa.list)
-    })
+  })
 
   ## read in tree based on selected tree
   userTree <- eventReactive(input$userGO, {
     req(input$treeFile)
     inFile <- input$treeFile
     userTree <- read.tree(inFile$datafile)
+  })
 
   ## function to create plot
   output$userPhyloPlot <- renderPlot({
