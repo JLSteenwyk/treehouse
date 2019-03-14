@@ -185,7 +185,7 @@ shinyServer(function(input, output, session) {
       pdf(file)
       # prune taxa not of interest
       ingroup.labels<-as.vector(userData()$V1)
-      pruned.tree<-drop.tip(userTree,userTree$tip.label[-match(ingroup.labels, userTree$tip.label)])
+      pruned.tree<-drop.tip(userTree(),userTree()$tip.label[-match(ingroup.labels, userTree()$tip.label)])
       # plot tree
       plotTree(pruned.tree)
       add.scale.bar(cex = 0.7, font = 2, col = "black")
@@ -200,7 +200,7 @@ shinyServer(function(input, output, session) {
       paste("treehouse-",Sys.Date(),".tre",sep= "")},
     content=function(file){
       ingroup.labels<-as.vector(userData()$V1)
-      pruned.tree<-drop.tip(userTree,userTree$tip.label[-match(ingroup.labels, userTree$tip.label)])
+      pruned.tree<-drop.tip(userTree(),userTree()$tip.label[-match(ingroup.labels, userTree()$tip.label)])
       # write tree file out
       write.tree(pruned.tree, file=file)
     }
