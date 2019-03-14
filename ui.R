@@ -91,7 +91,7 @@ shinyUI(fluidPage(
           downloadButton(outputId = "userTreePlot", label = "Download Plot"),
           downloadButton(outputId = "userNewick", label = "Download Newick File"),
           hr(),
-          p("testing new user function"),
+          p("testing new user function")
           # close mainPanel
           )
       # close sidebarLayout
