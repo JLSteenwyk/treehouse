@@ -16,6 +16,7 @@ library(ape)
 # Define server logic
 shinyServer(function(input, output, session) {
   
+  ### 1ST PAGE
   ## read in file reactively
   data <- eventReactive(input$go, { 
     req(input$file)
@@ -147,4 +148,61 @@ shinyServer(function(input, output, session) {
       write.tree(pruned.tree, file=file)
     }
   )
+
+  ### 2ND PAGE
+  ## read in file reactively
+  userData <- eventReactive(input$userGO, { 
+    req(input$fileUser)
+    inFile <- input$fileUser
+    taxa.list<-read.table(inFile$datapath)
+    return(taxa.list)
+    })
+
+  ## read in tree based on selected tree
+  userTree <- eventReactive(input$userGO, {
+    req(input$treeFile)
+    inFile <- input$treeFile
+    userTree <- read.tree(inFile$datafile)
+
+  ## function to create plot
+  output$userPhyloPlot <- renderPlot({
+    # prune taxa not of interest
+    ingroup.labels<-as.vector(userData()$V1)
+    pruned.tree<-drop.tip(userTree,userTree$tip.label[-match(ingroup.labels, userTree$tip.label)])
+    # plot tree
+    plotTree(pruned.tree)
+    add.scale.bar(cex = 0.7, font = 2, col = "black")
+  })
+  
+  ## save pdf
+  output$userTreePlot<- downloadHandler(
+    #Specify The File Name 
+    filename = function() {
+      paste("treehouse-",Sys.Date(),".pdf",sep= "")},
+    content = function(file){
+      # open the pdf
+      pdf(file)
+      # prune taxa not of interest
+      ingroup.labels<-as.vector(userData()$V1)
+      pruned.tree<-drop.tip(userTree,userTree$tip.label[-match(ingroup.labels, userTree$tip.label)])
+      # plot tree
+      plotTree(pruned.tree)
+      add.scale.bar(cex = 0.7, font = 2, col = "black")
+      dev.off()
+    }
+  )
+
+  ## write treefile
+  output$userNewick<- downloadHandler(
+    # Specify the file name
+    filename=function() {
+      paste("treehouse-",Sys.Date(),".tre",sep= "")},
+    content=function(file){
+      ingroup.labels<-as.vector(userData()$V1)
+      pruned.tree<-drop.tip(userTree,userTree$tip.label[-match(ingroup.labels, userTree$tip.label)])
+      # write tree file out
+      write.tree(pruned.tree, file=file)
+    }
+  )
+
 })

@@ -20,7 +20,7 @@ shinyUI(fluidPage(
       sidebarLayout(
         sidebarPanel(
           # drop down select menu to select phylogeny
-          selectInput("phyloSelect", "Species trees:",
+          selectInput("phyloSelect", "Phylogeny:",
             choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018",
                       "Saccharomycotina, 86 taxa - Shen et al. 2016",
                       "Saccharomycotina, 332 taxa - Shen et al. 2018",
@@ -66,21 +66,16 @@ shinyUI(fluidPage(
       # Create a spot for the choices
       sidebarLayout(
         sidebarPanel(
-          # drop down select menu to select phylogeny
-          selectInput("phyloSelect", "Species trees:",
-            choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018",
-                      "Saccharomycotina, 86 taxa - Shen et al. 2016",
-                      "Saccharomycotina, 332 taxa - Shen et al. 2018",
-                      "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018")
-                      ),
           # input file
-          fileInput("file", "File input:"),
+          fileInput("treeFile", "Tree input:"),
+          # input file
+          fileInput("fileUser", "Taxa input:"),
           # reactive button
-          actionButton("go", "Update"),
+          actionButton("userGO", "Update"),
           hr(),
           # user instructions
           h5("Quick Start"),
-          p("1) Select a phylogeny you want a subtree from"),
+          p("1) Upload a phylogeny you want a subtree from in Tree input:'"),
           p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
           p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
           p("3) Press the update button to display your desired subtree"),
@@ -91,9 +86,9 @@ shinyUI(fluidPage(
         
         # plot phylogeny in main panel
         mainPanel(
-          plotOutput("phyloPlot", width = "100%"),
+          plotOutput("userPhyloPlot", width = "100%"),
           # download buttons
-          downloadButton(outputId = "TreePlot", label = "Download Plot"),
+          downloadButton(outputId = "userTreePlot", label = "Download Plot"),
           downloadButton(outputId = "Newick", label = "Download Newick File"),
           hr(),
           textOutput("citationText"),
