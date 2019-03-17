@@ -73,37 +73,24 @@ shinyServer(function(input, output, session) {
     })
 
   ## display table of taxa names
-  df_subset <- eventReactive(input$go, {input$phyloSelect
-      if (input$phyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018)
-      } else if (input$phyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
-        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2016)
-      } else if (input$phyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
-        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Shen2018)
-      } else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
-        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Strain_Peter2018)
-      } else 
-        a<-data.frame(read.table("./Data/Taxa_names.txt", header=T, sep='\t', fill=T, na.strings="")$Genus_Species_Steenwyk2018)
-      a<-data.frame(a[!is.na(a),])
-      # replace column name to "full list of taxa"
-      colnames(a)[1]<-"temp"
-      # remove values that match outgroup.labels values
-      a<-data.frame(a[ ! a$"temp" %in% outgroup.labels(), ])
+  tipNames <- eventReactive(input$go, {
+      a<-tree()$tip.label
       # replace column name to "full list of taxa"
       colnames(a)[1]<-"full list of taxa for possible subtree"
       # return to df_subset
       return(a)
     })
-  output$taxaTable <- renderTable(df_subset())
+  output$taxaTable <- renderTable(tipNames())
   
   ## function to create plot
   output$phyloPlot <- renderPlot({
     # root tree
     tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE) 
-    # drop outgroup
-    tree<-drop.tip(tree, outgroup.labels())
-    # prune taxa not of interest
+    # drop outgroup tips not in ingroup.labels
     ingroup.labels<-as.vector(data()$V1)
+    outgroup.labels<-setdiff(outgroup.labels(),as.vector(ingroup.labels$V1))
+    tree<-drop.tip(tree, outgroup.labels)
+    # prune taxa not of interest
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
     # plot tree
     plotTree(pruned.tree)
@@ -120,10 +107,11 @@ shinyServer(function(input, output, session) {
       pdf(file)
       # root tree
       tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
-      # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels())
-      # prune taxa not of interest
+      # drop outgroup tips not in ingroup.labels
       ingroup.labels<-as.vector(data()$V1)
+      outgroup.labels<-setdiff(outgroup.labels(),as.vector(ingroup.labels$V1))
+      tree<-drop.tip(tree, outgroup.labels)
+      # prune taxa not of interest
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # plot tree
       plotTree(pruned.tree)
@@ -140,9 +128,11 @@ shinyServer(function(input, output, session) {
     content=function(file){
       # root tree
       tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
-      # drop outgroup
-      tree<-drop.tip(tree, outgroup.labels())
+      # drop outgroup tips not in ingroup.labels
       ingroup.labels<-as.vector(data()$V1)
+      outgroup.labels<-setdiff(outgroup.labels(),as.vector(ingroup.labels$V1))
+      tree<-drop.tip(tree, outgroup.labels)
+      # prune taxa not of interest
       pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
       # write tree file out
       write.tree(pruned.tree, file=file)

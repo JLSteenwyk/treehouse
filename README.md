@@ -16,7 +16,6 @@ Please remember that these phylogenies are hypotheses; while most branches are r
 The shiny app assumes shiny, phytools, and ape are installed. To install these packages, execute the typical R command within the R environment.
 ```
 install.packages("shiny", dep=T)
-install.packages("ape", dep=T)
 install.packages("phytools", dep=T)
 ```
 
