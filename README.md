@@ -20,7 +20,7 @@ install.packages("phytools", dep=T)
 ```
 
 ### 2) Opening up the shiny app
-After installing dependencies load shiny and run the shiny by executing the runGitHub() command
+After installing dependencies load shiny and run the shiny app by executing the following command in R
 ```
 shiny::runGitHub("treehouse", "JLSteenwyk")
 ```
@@ -42,7 +42,7 @@ To download the pdf of the phylogeny or the newick tree file, click "Download Pl
 
 ## Contributions and feedback
 I welcome others contributing phylogenies to treehouse as well as user feedback. To provide a phylogeny or feedback, please contact me at jacob[dot]steenwyk[at]vanderbilt[dot]edu. Thank you!
-
-## Author
-* **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)
+<br />
+<br />
+treehouse is developed and maintained by [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
