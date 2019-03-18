@@ -109,7 +109,9 @@ shinyServer(function(input, output, session) {
     pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
     if("try-error" %in% class(pruned.tree)) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again. A full list of tip names is available below\n\nR error:only 0's may be mixed with negative subscripts")
     # plot tree
-    plotTree(pruned.tree)
+    p<-try(plotTree(pruned.tree))
+    if("try-error" %in% class(p)) p<-plot.phylo(pruned.tree)
+    p
     add.scale.bar(cex = 0.7, font = 2, col = "black")
   })
   
