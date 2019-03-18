@@ -53,6 +53,9 @@ shinyServer(function(input, output, session) {
       else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
       outgroup.labels<-c("AMH","CEG","CEI")
       }
+      else if (input$phyloSelect == "Cryptococcus neoformans, 387 taxa - Desjardins et al. 2017") {
+      outgroup.labels<-c("8-1","AD3-11a","AD3-9a","AD5-67a","C12","C2","C45","LP-RSA1684","MW-RSA1327","MW-RSA3956","MW-RSA4119","MW-RSA852","PMHc1023.ENR","T4","Ug2462","WM626")
+      }
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -68,6 +71,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Shen et al. 2018, Cell. doi: 10.1016/j.cell.2018.10.023")
       } else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
         paste("If you use this subtree, please cite: Peter et al. 2018, Nature. doi: 10.1038/s41586-018-0030-5")
+        } else if (input$phyloSelect == "Cryptococcus neoformans, 387 taxa - Desjardins et al. 2017") {
+        paste("If you use this subtree, please cite: Desjardins et al. 2017, Genome Research. doi: 10.1101/gr.218727.116")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
