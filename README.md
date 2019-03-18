@@ -14,10 +14,9 @@ Please remember that these phylogenies are hypotheses; while most branches are r
 ## Quick Start
 
 ### 1) Installing dependencies
-The shiny app assumes shiny, phytools, and ape are installed. To install these packages, execute the typical R command within the R environment.
+Function of this app requires the shiny R package. To install this package, execute the typical R command within the R environment.
 ```
 install.packages("shiny", dep=T)
-install.packages("phytools", dep=T)
 ```
 
 ### 2) Opening up the shiny app

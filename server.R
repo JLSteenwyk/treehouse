@@ -13,8 +13,6 @@ if (!require("phytools")) {
    install.packages("phytools", dependencies = TRUE)
    library(phytools)
    }
-#library(shiny)
-#library(phytools)
 
 # Define server logic
 shinyServer(function(input, output, session) {
@@ -102,6 +100,7 @@ shinyServer(function(input, output, session) {
     tree<-drop.tip(tree, outgroup.labels)
     # prune taxa not of interest
     pruned.tree<-drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)])
+    if(!exists("pruned.tree")) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again.\n\nR error:only 0's may be mixed with negative subscripts")
     # plot tree
     plotTree(pruned.tree)
     add.scale.bar(cex = 0.7, font = 2, col = "black")
