@@ -38,6 +38,8 @@ shinyServer(function(input, output, session) {
       tree <- read.tree("./Data/Saccharomyces_cerevisiae_fig1_Peter_etal_2018.tre") 
     } else if (input$phyloSelect == "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017") {
       tree <- read.tree("./Data/Cryptococcus_neoformans_fig1_Desjardins_etal_2017.tre")  
+    } else if (input$phyloSelect == "Fungi, 214 species - James et al. 2006") {
+      tree <- read.tree("./Data/Fungi_fig1_James_etal_2006.tre")  
     } else 
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -59,6 +61,9 @@ shinyServer(function(input, output, session) {
       else if (input$phyloSelect == "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017") {
       outgroup.labels<-c("8-1","AD3-11a","AD3-9a","AD5-67a","C12","C2","C45","LP-RSA1684","MW-RSA1327","MW-RSA3956","MW-RSA4119","MW_RSA852","PMHc1023.ENR","T4","Ug2462","WM626")
       }
+      else if (input$phyloSelect == "Fungi, 214 species - James et al. 2006") {
+      outgroup.labels<-c("Chlamydomonas_reinhardtii","Oryza_sativa","Arabidopsis_thaliana","Populus_trichocarpa")
+      }
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -74,8 +79,10 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Shen et al. 2018, Cell. doi: 10.1016/j.cell.2018.10.023")
       } else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
         paste("If you use this subtree, please cite: Peter et al. 2018, Nature. doi: 10.1038/s41586-018-0030-5")
-        } else if (input$phyloSelect == "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017") {
+      } else if (input$phyloSelect == "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017") {
         paste("If you use this subtree, please cite: Desjardins et al. 2017, Genome Research. doi: 10.1101/gr.218727.116")
+      } else if (input$phyloSelect == "Fungi, 214 species - James et al. 2006") {
+        paste("If you use this subtree, please cite: James et al. 2006, Nature. doi: 10.1038/nature05110")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
@@ -100,7 +107,7 @@ shinyServer(function(input, output, session) {
     tree<-drop.tip(tree, outgroup.labels)
     # prune taxa not of interest
     pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
-    if("try-error" %in% class(pruned.tree)) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again.\n\nR error:only 0's may be mixed with negative subscripts")
+    if("try-error" %in% class(pruned.tree)) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again. A full list of tip names is available below\n\nR error:only 0's may be mixed with negative subscripts")
     # plot tree
     plotTree(pruned.tree)
     add.scale.bar(cex = 0.7, font = 2, col = "black")
