@@ -9,9 +9,11 @@
 
 
 ## Load necessary packages
-library(shiny)
-library(phytools)
-library(ape)
+list.of.packages <- c("shiny", "phytools")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+#library(shiny)
+#library(phytools)
 
 # Define server logic
 shinyServer(function(input, output, session) {
