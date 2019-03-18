@@ -35,7 +35,7 @@ shinyServer(function(input, output, session) {
       tree <- read.tree("./Data/Saccharomycotina_fig2_Shen_etal_2018.tre")
     } else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
       tree <- read.tree("./Data/Saccharomyces_cerevisiae_fig1_Peter_etal_2018.tre") 
-    } else if (input$phyloSelect == "Cryptococcus neoformans, 387 taxa - Desjardins et al. 2017") {
+    } else if (input$phyloSelect == "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017") {
       tree <- read.tree("./Data/Cryptococcus_neoformans_fig1_Desjardins_etal_2017.tre")  
     } else 
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
@@ -55,7 +55,7 @@ shinyServer(function(input, output, session) {
       else if (input$phyloSelect == "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018") {
       outgroup.labels<-c("AMH","CEG","CEI")
       }
-      else if (input$phyloSelect == "Cryptococcus neoformans, 387 taxa - Desjardins et al. 2017") {
+      else if (input$phyloSelect == "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017") {
       outgroup.labels<-c("8-1","AD3-11a","AD3-9a","AD5-67a","C12","C2","C45","LP-RSA1684","MW-RSA1327","MW-RSA3956","MW-RSA4119","MW_RSA852","PMHc1023.ENR","T4","Ug2462","WM626")
       }
       else {
