@@ -39,7 +39,9 @@ shinyServer(function(input, output, session) {
     } else if (input$phyloSelect == "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017") {
       tree <- read.tree("./Data/Cryptococcus_neoformans_fig1_Desjardins_etal_2017.tre")  
     } else if (input$phyloSelect == "Fungi, 214 species - James et al. 2006") {
-      tree <- read.tree("./Data/Fungi_fig1_James_etal_2006.tre")  
+      tree <- read.nexus("./Data/Fungi_fig1_James_etal_2006.nex.tre")  
+    } else if (input$phyloSelect == "Fungi, 5,284 species - Varga et al. 2019") {
+      tree <- read.nexus("./Data/Fungi_fig1_Varga_etal_2019.nex.tre")  
     } else 
       tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -64,6 +66,9 @@ shinyServer(function(input, output, session) {
       else if (input$phyloSelect == "Fungi, 214 species - James et al. 2006") {
       outgroup.labels<-c("Chlamydomonas_reinhardtii","Oryza_sativa","Arabidopsis_thaliana","Populus_trichocarpa")
       }
+      else if (input$phyloSelect == "Fungi, 5,284 species - Varga et al. 2019") {
+      outgroup.labels<-c("Tremella_polyporina", "Syzygospora_effibulata", "Cryptococcus_podzolicus", "Asterotremella_humicola", "Trichosporon_scarabaeorum", "Trichosporon_domesticum", "Trichosporon_brassicae", "Trichosporon_montevideense", "Trichosporon_mycotoxinivorans", "Trichosporon_loubieri", "Trichosporon_multisporum", "Trichosporon_veenhuisii", "Trichosporon_laibachii", "Trichosporon_gracile", "Trichosporon_dulcitum", "Trichosporon_vadense", "Cryptococcus_humicola", "Trichosporon_wieringae", "Trichosporon_gamsii", "Trichosporon_sporotrichoides", "Trichosporon_porosum", "Trichosporon_inkin", "Trichosporon_coremiiforme", "Trichosporon_faecale", "Trichosporon_japonicum", "Trichosporon_jirovecii", "Trichosporon_debeurmannianum", "Trichosporon_dermatis", "Trichosporon_moniliiforme", "Tremella_globispora", "Cryptococcus_bacillisporus", "Cryptococcus_gattii", "Cryptococcus_neoformans", "Cryptococcus_neoformansvargrubii", "Tsuchiyaea_wingfieldii", "Cryptococcus_amylolentus", "Filobasidiella_depauperata", "Cryptococcus_dejecticola", "Cryptococcus_bestiolae", "Bullera_dendrophila", "Cryptococcus_heveanensis", "Derxomyces_linzhiensis", "Derxomyces_anomala", "Derxomyces_simaoensis", "Derxomyces_komagatae", "Derxomyces_schimicola", "Derxomyces_pseudoschimicola", "Dioszegia_takashimae", "Derxomyces_pseudocylindrica", "Derxomyces_wuzhishanensis", "Derxomyces_hainanensis", "Derxomyces_mrakii", "Derxomyces_boninensis", "Derxomyces_qinlingensis", "Derxomyces_pseudohuiaensis", "Derxomyces_cylindrica", "Derxomyces_waltii", "Derxomyces_nakasei", "Derxomyces_boekhoutii", "Derxomyces_huiaensis", "Derxomyces_hubeiensis", "Derxomyces_yunnanensis", "Sirobasidium_magnum", "Tremella_parmeliarum", "Trimorphomyces_nebularis", "Tremella_fuciformis", "Tremella_brasiliensis", "Tremella_indecorata", "Cryptococcus_laurentii", "Cryptococcus_rajasthanensis", "Cryptococcus_cellulolyticus", "Sirobasidium_brefeldianum", "Tremella_caloplacae", "Tremella_dendrographae", "Tremella_candelariellae", "Tremella_giraffa", "Tremella_cetrariicola", "Biatoropsis_usnearum", "Tremella_tuckerae", "Tremella_coppinsii", "Tremella_wirthii", "Tremella_pertusariae", "Tremella_ramalinae", "Tremella_lichenicola", "Tremella_everniae", "Tremella_hypogymniae", "Tremella_encephala", "Tremella_phaeophysciae", "Tremella_leptogii", "Tremella_lobariacearum", "Tremella_nephromatis", "Tremella_cladoniae", "Tremella_haematommatis", "Tremella_foliacea", "Tremella_mesenterica", "Fibulobasidium_inconspicuum", "Cryptococcus_magnus", "Syzygospora_pallida", "Syzygospora_alba", "Syzygospora_physciacearum", "Syzygospora_bachmannii", "Cryptococcus_terreus", "Cryptococcus_terricola", "Cryptococcus_aerius", "Cryptococcus_saitoi")
+      }
       else {
       outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -83,6 +88,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Desjardins et al. 2017, Genome Research. doi: 10.1101/gr.218727.116")
       } else if (input$phyloSelect == "Fungi, 214 species - James et al. 2006") {
         paste("If you use this subtree, please cite: James et al. 2006, Nature. doi: 10.1038/nature05110")
+        } else if (input$phyloSelect == "Fungi, 5,284 species - Varga et al. 2019") {
+        paste("If you use this subtree, please cite: Varga et al. 2019, Nature Ecology and Evolution. doi: 10.1038/s41559-019-0834-1")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
