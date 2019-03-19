@@ -6,6 +6,7 @@ Research groups I am involved in create large phylogenies and we hope our analys
 • *Aspergillus* and *Penicillium* species (Aspergillaceae), 81 taxa - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
 • *Cryptococcus neoformans*, 387 strains - [Desjardins et al. 2017](https://genome.cshlp.org/content/27/7/1207.short)<br />
 • Fungi, 214 species - [James et al. 2006](https://www.nature.com/articles/nature05110)<br />
+• Fungi, 5,284 species - [Varga et al. 2019](https://www.nature.com/articles/s41559-019-0834-1)<br />
 • *Saccharomyces cerevisiae*, 1,011 strains - [Peter, et al. 2018](https://www.nature.com/articles/s41586-018-0030-5)<br />
 • Saccharomycotina, 86 taxa - [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)<br />
 • Saccharomycotina, 332 taxa - [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)<br />
