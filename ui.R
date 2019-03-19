@@ -24,6 +24,7 @@ shinyUI(fluidPage(
             choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018",
                       "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017",
                       "Fungi, 214 species - James et al. 2006",
+                      "Fungi, 5,284 species - Varga et al. 2019",
                       "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018",
                       "Saccharomycotina, 86 taxa - Shen et al. 2016",
                       "Saccharomycotina, 332 taxa - Shen et al. 2018")
