@@ -1,6 +1,9 @@
 ![](www/treehouse_logo.png)
 
-Research groups I am involved in create large phylogenies and we hope our analyses can provide the evolutionary background to inform other research group's projects. However, we recognize our choice in taxon sampling may provide more information than a researcher needs. To this end, we have created treehouse, which produces a subtree from a set of taxa. For example, if we constructed a phylogeny of 100 taxa and your research project involves 20 taxa, you can obtain a subtree of these 20 taxa from the published 100 taxa phylogeny. 
+Phylogenies are rapidly becoming larger due to the number of available genomes increasing, however, large phylogenies often become uninterpretable as tip labels are so small or excluded altogether. As a result, large phylogenies can be difficult to use thereafter for other researchers especially those interested in the relationships among a subset of taxa. Here, we introduce <i>treehouse</i>, a user friendly shiny app that allows researchers to obtain subtrees from large-scale phylogenies. <i>Treehouse</i> is populated with a handful of large-scale phylogenies available through <i>treehouseDB</i>. Additionally, <i>treehouse</i> features an additional function, <i>userTree</i>, which allows a user to upload and parse their own phylogeny.
+
+Our aim is to make phylogenies more accessible to all and facilitate researchers exploration in their own phylogenies. 
+
 <br />
 ## Current phylogenies available
 • *Aspergillus* and *Penicillium* species (Aspergillaceae), 81 taxa - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
