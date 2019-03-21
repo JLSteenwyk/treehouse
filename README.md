@@ -5,7 +5,6 @@ Phylogenies are rapidly becoming larger due to the number of available genomes i
 Our aim is to make phylogenies more accessible to all and facilitate researchers exploration in their own phylogenies. 
 
 ## Current phylogenies available
-<br />
 <center>
 
 | Taxa represented                | Number of tips           | Reference                                                                       |
