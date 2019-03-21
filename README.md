@@ -20,13 +20,13 @@ Please remember that these phylogenies are hypotheses; while most branches are r
 
 ### 1) Installing dependencies
 Function of this app requires the shiny R package. To install this package, execute the typical R command within the R environment.
-```
+```R
 install.packages("shiny", dep=T)
 ```
 
 ### 2) Opening up the shiny app
 After installing dependencies load shiny and run the shiny app by executing the following command in R
-```
+```R
 shiny::runGitHub("treehouse", "JLSteenwyk")
 ```
 
