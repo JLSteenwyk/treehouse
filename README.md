@@ -5,7 +5,7 @@ Phylogenies are rapidly becoming larger due to the number of available genomes i
 Our aim is to make phylogenies more accessible to all and facilitate researchers exploration in their own phylogenies. 
 
 <br />
-## Current phylogenies available
+## Current phylogenies available<br />
 • *Aspergillus* and *Penicillium* species (Aspergillaceae), 81 taxa - [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)<br />
 • *Cryptococcus neoformans*, 387 strains - [Desjardins et al. 2017](https://genome.cshlp.org/content/27/7/1207.short)<br />
 • Fungi, 214 species - [James et al. 2006](https://www.nature.com/articles/nature05110)<br />
