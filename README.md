@@ -17,7 +17,6 @@ Our aim is to make phylogenies more accessible to all and facilitate researchers
 | Saccharomycotina                                              | 86 taxa                  | [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)        |
 | Saccharomycotina                                              | 332 taxa                 | [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)   |
 
-<br />
 Please remember that these phylogenies are hypotheses; while most branches are robustly supported, a few show substantial conflict and should be treated with caution.
 
 ## Quick Start
