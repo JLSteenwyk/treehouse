@@ -49,7 +49,7 @@ To download the pdf of the phylogeny or the newick tree file, click "Download Pl
 <br /><br />
 
 ## Contributions and feedback
-I welcome others contributing phylogenies to treehouse as well as user feedback. To provide a phylogeny or feedback, please contact me at jacob[dot]steenwyk[at]vanderbilt[dot]edu. Thank you!
+Others are welcome to contribute phylogenies to treehouse as well as provide user feedback. To provide a phylogeny or feedback, please contact me at jacob[dot]steenwyk[at]vanderbilt[dot]edu. Thank you!
 <br />
 <br />
 treehouse is developed and maintained by [Jacob Steenwyk](https://jlsteenwyk.github.io/)
