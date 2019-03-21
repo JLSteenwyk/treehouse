@@ -5,7 +5,6 @@ Phylogenies are rapidly becoming larger due to the number of available genomes i
 Our aim is to make phylogenies more accessible to all and facilitate researchers exploration in their own phylogenies. 
 
 ## Current phylogenies available
-<center>
 
 | Taxa represented                | Number of tips           | Reference                                                                       |
 | ------------------------------- |:------------------------:| :-----------------------------------------------------------------------------: |
@@ -16,8 +15,6 @@ Our aim is to make phylogenies more accessible to all and facilitate researchers
 | *Saccharomyces cerevisiae*      | 1,011 strains            | [Peter, et al. 2018](https://www.nature.com/articles/s41586-018-0030-5)         |
 | Saccharomycotina                | 86 taxa                  | [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)        |
 | Saccharomycotina                | 332 taxa                 | [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)   |
-
-</center>
 
 Please remember that these phylogenies are hypotheses; while most branches are robustly supported, a few show substantial conflict and should be treated with caution.
 
