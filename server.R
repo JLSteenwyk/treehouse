@@ -113,7 +113,7 @@ shinyServer(function(input, output, session) {
     # root tree
     tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE) 
     # drop outgroup tips not in ingroup.labels
-    ingroup.labels<-as.vector(data()$V1)
+    ingroup.labels<-as.vector(FUNGIdata()$V1)
     outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
     tree<-drop.tip(tree, outgroup.labels)
     # prune taxa not of interest
@@ -137,7 +137,7 @@ shinyServer(function(input, output, session) {
       # root tree
       tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
-      ingroup.labels<-as.vector(data()$V1)
+      ingroup.labels<-as.vector(FUNGIdata()$V1)
       outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
       tree<-drop.tip(tree, outgroup.labels)
       # prune taxa not of interest
@@ -161,7 +161,7 @@ shinyServer(function(input, output, session) {
       # root tree
       tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
-      ingroup.labels<-as.vector(data()$V1)
+      ingroup.labels<-as.vector(FUNGIdata()$V1)
       outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
       tree<-drop.tip(tree, outgroup.labels)
       # prune taxa not of interest
