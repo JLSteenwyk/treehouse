@@ -191,7 +191,7 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
-    } else if (input$ANIMALphyloSelect == "Birds, 200 taxa - Prum et al. 2015") {
+    } else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
       ANIMALtree <- read.tree("./Data/Birds_fig1_Prum_etal_2015.tre")   
     } else 
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")
