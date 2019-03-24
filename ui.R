@@ -10,7 +10,6 @@ shinyUI(fluidPage(
       hr(),
       # Create a spot for the choices
       sidebarLayout(
-        h1("treehouse is currently under development - please do not use"),
         sidebarPanel(
           # input file
           fileInput("treeFile", "Tree input:"),
