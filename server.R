@@ -178,33 +178,33 @@ shinyServer(function(input, output, session) {
 
   ### ANIMAL
   ## read in file reactively
-  data <- eventReactive(input$ANIMALgo, { 
-    req(input$file)
-    inFile <- input$file
+  ANIMALdata <- eventReactive(input$ANIMALgo, { 
+    req(input$ANIMALfile)
+    inFile <- input$ANIMALfile
     taxa.list<-read.table(inFile$datapath)
     return(taxa.list)
     })
 
   ## read in tree based on selected tree
-  tree <- eventReactive(input$ANIMALgo, {
+  ANIMALtree <- eventReactive(input$ANIMALgo, {
     if (input$ANIMALphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-      tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
-      tree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
+      ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
     } else 
-      tree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")
+      ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")
   })
 
   ## select outgroup labels based on selected tree
-  outgroup.labels <- eventReactive(input$ANIMALgo, {input$ANIMALphyloSelect
+  ANIMALoutgroup.labels <- eventReactive(input$ANIMALgo, {input$ANIMALphyloSelect
     if (input$ANIMALphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-      outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
       else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
-      outgroup.labels<-c("Monosiga", "Salpingoeca")
+      ANIMALoutgroup.labels<-c("Monosiga", "Salpingoeca")
       }
       else {
-      outgroup.labels<-c("Monosiga", "Salpingoeca")
+      ANIMALoutgroup.labels<-c("Monosiga", "Salpingoeca")
       }
     })
 
@@ -219,7 +219,7 @@ shinyServer(function(input, output, session) {
     })
 
   ## display table of taxa names
-  tipNames <- eventReactive(input$ANIMALgo, {
+  ANIMALtipNames <- eventReactive(input$ANIMALgo, {
       a<-data.frame(tree()$tip.label)
       # replace column name to "full list of taxa"
       colnames(a)[1]<-"full list of taxa for possible subtree"
@@ -231,10 +231,10 @@ shinyServer(function(input, output, session) {
   ## function to create plot
   output$ANIMALphyloPlot <- renderPlot({
     # root tree
-    tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE) 
+    tree<-root(ANIMALtree(), outgroup = ANIMALoutgroup.labels(), resolve.root = TRUE) 
     # drop outgroup tips not in ingroup.labels
-    ingroup.labels<-as.vector(data()$V1)
-    outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
+    ingroup.labels<-as.vector(ANIMALdata()$V1)
+    outgroup.labels<-setdiff(ANIMALoutgroup.labels(),ingroup.labels)
     tree<-drop.tip(tree, outgroup.labels)
     # prune taxa not of interest
     pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
@@ -255,10 +255,10 @@ shinyServer(function(input, output, session) {
       # open the pdf
       pdf(file)
       # root tree
-      tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+      tree<-root(ANIMALtree(), outgroup = ANIMALoutgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
-      ingroup.labels<-as.vector(data()$V1)
-      outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
+      ingroup.labels<-as.vector(ANIMALdata()$V1)
+      outgroup.labels<-setdiff(ANIMALoutgroup.labels(),ingroup.labels)
       tree<-drop.tip(tree, outgroup.labels)
       # prune taxa not of interest
       pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
@@ -279,9 +279,9 @@ shinyServer(function(input, output, session) {
       paste("treehouse-",Sys.Date(),".tre",sep= "")},
     content=function(file){
       # root tree
-      tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+      tree<-root(ANIMALtree(), outgroup = ANIMALoutgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
-      ingroup.labels<-as.vector(data()$V1)
+      ingroup.labels<-as.vector(ANIMALdata()$V1)
       outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
       tree<-drop.tip(tree, outgroup.labels)
       # prune taxa not of interest
