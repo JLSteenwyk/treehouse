@@ -1,12 +1,3 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 
 # Define UI for application
@@ -59,7 +50,7 @@ shinyUI(fluidPage(
       sidebarLayout(
         sidebarPanel(
           # drop down select menu to select phylogeny
-          selectInput("phyloSelect", "Phylogeny:",
+          selectInput("FUNGIphyloSelect", "Phylogeny:",
             choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018",
                       "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017",
                       "Fungi, 214 species - James et al. 2006",
@@ -69,9 +60,9 @@ shinyUI(fluidPage(
                       "Saccharomycotina, 332 taxa - Shen et al. 2018")
                       ),
           # input file
-          fileInput("file", "File input:"),
+          fileInput("FUNGIfile", "File input:"),
           # reactive button
-          actionButton("go", "Update"),
+          actionButton("FUNGIgo", "Update"),
           hr(),
           # user instructions
           h5("Quick Start"),
@@ -86,14 +77,14 @@ shinyUI(fluidPage(
         
         # plot phylogeny in main panel
         mainPanel(
-          plotOutput("phyloPlot", width = "100%"),
+          plotOutput("FUNGIphyloPlot", width = "100%"),
           # download buttons
-          downloadButton(outputId = "TreePlot", label = "Download Plot"),
-          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          downloadButton(outputId = "FUNGITreePlot", label = "Download Plot"),
+          downloadButton(outputId = "FUNGINewick", label = "Download Newick File"),
           hr(),
-          textOutput("citationText"),
+          textOutput("FUNGIcitationText"),
           hr(),
-          tableOutput('taxaTable')
+          tableOutput('FUNGItaxaTable')
           # close mainPanel
           )
       # close sidebarLayout
@@ -108,13 +99,13 @@ shinyUI(fluidPage(
       sidebarLayout(
         sidebarPanel(
           # drop down select menu to select phylogeny
-          selectInput("phyloSelect", "Phylogeny:",
+          selectInput("ANIMALphyloSelect", "Phylogeny:",
             choices=c("Metazoans, 36 taxa - Borowiec et al. 2015")
                       ),
           # input file
-          fileInput("file", "File input:"),
+          fileInput("ANIMALfile", "File input:"),
           # reactive button
-          actionButton("go", "Update"),
+          actionButton("ANIMALgo", "Update"),
           hr(),
           # user instructions
           h5("Quick Start"),
@@ -129,14 +120,14 @@ shinyUI(fluidPage(
         
         # plot phylogeny in main panel
         mainPanel(
-          plotOutput("phyloPlot", width = "100%"),
+          plotOutput("ANIMALphyloPlot", width = "100%"),
           # download buttons
-          downloadButton(outputId = "TreePlot", label = "Download Plot"),
-          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          downloadButton(outputId = "ANIMALTreePlot", label = "Download Plot"),
+          downloadButton(outputId = "ANIMALNewick", label = "Download Newick File"),
           hr(),
-          textOutput("citationText"),
+          textOutput("ANIMALcitationText"),
           hr(),
-          tableOutput('taxaTable')
+          tableOutput('ANIMALtaxaTable')
           # close mainPanel
           )
       # close sidebarLayout
@@ -151,13 +142,13 @@ shinyUI(fluidPage(
       sidebarLayout(
         sidebarPanel(
           # drop down select menu to select phylogeny
-          selectInput("phyloSelect", "Phylogeny:",
+          selectInput("PLANTphyloSelect", "Phylogeny:",
             choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018")
                       ),
           # input file
-          fileInput("file", "File input:"),
+          fileInput("PLANTfile", "File input:"),
           # reactive button
-          actionButton("go", "Update"),
+          actionButton("PLANTgo", "Update"),
           hr(),
           # user instructions
           h5("Quick Start"),
@@ -172,14 +163,14 @@ shinyUI(fluidPage(
         
         # plot phylogeny in main panel
         mainPanel(
-          plotOutput("phyloPlot", width = "100%"),
+          plotOutput("PLANTphyloPlot", width = "100%"),
           # download buttons
-          downloadButton(outputId = "TreePlot", label = "Download Plot"),
-          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          downloadButton(outputId = "PLANTTreePlot", label = "Download Plot"),
+          downloadButton(outputId = "PLANTNewick", label = "Download Newick File"),
           hr(),
-          textOutput("citationText"),
+          textOutput("PLANTcitationText"),
           hr(),
-          tableOutput('taxaTable')
+          tableOutput('PLANTtaxaTable')
           # close mainPanel
           )
       # close sidebarLayout
@@ -198,14 +189,14 @@ shinyUI(fluidPage(
             choices=c("Tree of life, 3,083 taxa - Hug et al. 2016")
                       ),
           # input file
-          fileInput("file", "File input:"),
+          fileInput("TOLfile", "File input:"),
           # reactive button
-          actionButton("go", "Update"),
+          actionButton("TOLgo", "Update"),
           hr(),
           # user instructions
           h5("Quick Start"),
           p("1) Select a phylogeny you want a subtree from"),
-          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree."),
           p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
           p("3) Press the update button to display your desired subtree"),
           p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
@@ -215,14 +206,14 @@ shinyUI(fluidPage(
         
         # plot phylogeny in main panel
         mainPanel(
-          plotOutput("phyloPlot", width = "100%"),
+          plotOutput("TOLphyloPlot", width = "100%"),
           # download buttons
-          downloadButton(outputId = "TreePlot", label = "Download Plot"),
-          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          downloadButton(outputId = "TOLTreePlot", label = "Download Plot"),
+          downloadButton(outputId = "TOLNewick", label = "Download Newick File"),
           hr(),
-          textOutput("citationText"),
+          textOutput("TOLcitationText"),
           hr(),
-          tableOutput('taxaTable')
+          tableOutput('TOLtaxaTable')
           # close mainPanel
           )
       # close sidebarLayout
