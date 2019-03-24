@@ -97,6 +97,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: James et al. 2006, Nature. doi: 10.1038/nature05110")
       } else if (input$FUNGIphyloSelect == "Fungi, 5,284 taxa - Varga et al. 2019") {
         paste("If you use this subtree, please cite: Varga et al. 2019, Nature Ecology and Evolution. doi: 10.1038/s41559-019-0834-1")
+      } else if (input$FUNGIphyloSelect == "Fungi, 60 taxa - Nagy et al. 2014") {
+        paste("If you use this subtree, please cite: Nagy et al. 2014, Nature Communications. doi: 10.1038/ncomms5471")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
@@ -200,6 +202,8 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.nexus("./Data/Vertebrates_fig1_Chen_etal_2015.tre")  
     } else if (input$ANIMALphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015" ) {
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Whelan_etal_2015.tre")
+    } else if (input$ANIMALphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014" ) {
+      ANIMALtree <- read.tree("./Data/Birds_fig1_Jarvis_etal_2014.tre")
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -221,6 +225,9 @@ shinyServer(function(input, output, session) {
       else if (input$ANIMALphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015") {
       ANIMALoutgroup.labels<-c("Allomyces_macrogynus","Rhizopus_oryzae","Mortierella_verticillata","Spizellomyces_punctatus")
       }
+      else if (input$ANIMALphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014") {
+      ANIMALoutgroup.labels<-c("ANAPL","GALGA","MELGA","TINMA","STRCA")
+      }
       else {
       ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -235,9 +242,11 @@ shinyServer(function(input, output, session) {
       } else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
         paste("If you use this subtree, please cite: Prum et al. 2015, Nature doi: 10.1038/nature15697")
       } else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
-        paste("If you use this subtree, please cite: Vertebrates et al. 2015, Systematic Biology doi: 10.1093/sysbio/syv059")
+        paste("If you use this subtree, please cite: Chen et al. 2015, Systematic Biology doi: 10.1093/sysbio/syv059")
       } else if (input$ANIMALphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015") {
         paste("If you use this subtree, please cite: Whelan et al. 2015, Proceedings of the National Academy of Sciences of the USA doi: 10.1073/pnas.1503453112") 
+      } else if (input$ANIMALphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014") {
+        paste("If you use this subtree, please cite: Jarvis et al. 2014, Science doi: 10.1126/science.1253451")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
