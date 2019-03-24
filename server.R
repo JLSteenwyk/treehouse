@@ -226,6 +226,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Borowiec et al. 2015, BMC Genomics. doi: 10.1186/s12864-015-2146-4")
       } else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
         paste("If you use this subtree, please cite: Prum et al. 2015, Nature doi: 10.1038/nature15697")
+        } else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
+        paste("If you use this subtree, please cite: Vertebrates et al. 2015, Systematic Biology doi: 10.1093/sysbio/syv059")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
