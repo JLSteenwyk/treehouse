@@ -79,8 +79,8 @@ shinyServer(function(input, output, session) {
     })
 
   ## display proper citation based on associated manuscript
-  output$citationText <- renderText({
-      if (input$phyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+  output$FUNGIcitationText <- renderText({
+      if (input$FUNGIphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
       } else if (input$FUNGIphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
         paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
