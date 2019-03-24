@@ -342,6 +342,9 @@ shinyServer(function(input, output, session) {
   PLANTtree <- eventReactive(input$PLANTgo, {
     if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
       PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
+    }
+    else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
+      PLANTtree<-read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
     } else 
       PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
   })
