@@ -259,7 +259,7 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Jarvis et al. 2014, Science doi: 10.1126/science.1253451")
       } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
         paste("If you use this subtree, please cite: Tarver et al. 2016, Genome Biology and Evolution doi: 10.1093/gbe/evv261 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
-      } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
+      } else if (input$ANIMALphyloSelect == "Insects, 144 taxa - Misof et al. 2014") {
         paste("If you use this subtree, please cite: Misof et al. 2014, Science doi: 10.1126/science.1257570 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
