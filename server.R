@@ -204,6 +204,8 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Whelan_etal_2015.tre")
     } else if (input$ANIMALphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014" ) {
       ANIMALtree <- read.tree("./Data/Birds_fig1_Jarvis_etal_2014.tre")
+    } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016" ) {
+      ANIMALtree <- read.tree("./Data/Mammals_fig2_Tarver_etal_2016.tre")
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -228,6 +230,9 @@ shinyServer(function(input, output, session) {
       else if (input$ANIMALphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014") {
       ANIMALoutgroup.labels<-c("ANAPL","GALGA","MELGA","TINMA","STRCA")
       }
+      else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
+      ANIMALoutgroup.labels<-c("P001_Platypus")
+      }
       else {
       ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -247,6 +252,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Whelan et al. 2015, Proceedings of the National Academy of Sciences of the USA doi: 10.1073/pnas.1503453112") 
       } else if (input$ANIMALphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014") {
         paste("If you use this subtree, please cite: Jarvis et al. 2014, Science doi: 10.1126/science.1253451")
+      } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
+        paste("If you use this subtree, please cite: Tarver et al. 2016, Genome Biology and Evolution doi: 10.1093/gbe/evv261 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
