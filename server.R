@@ -220,7 +220,7 @@ shinyServer(function(input, output, session) {
 
   ## display table of taxa names
   ANIMALtipNames <- eventReactive(input$ANIMALgo, {
-      a<-data.frame(tree()$tip.label)
+      a<-data.frame(ANIMALtree()$tip.label)
       # replace column name to "full list of taxa"
       colnames(a)[1]<-"full list of taxa for possible subtree"
       # return to df_subset
