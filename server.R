@@ -206,6 +206,8 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Birds_fig1_Jarvis_etal_2014.tre")
     } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016" ) {
       ANIMALtree <- read.tree("./Data/Mammals_fig2_Tarver_etal_2016.tre")
+      } else if (input$ANIMALphyloSelect == "Insects, 144 taxa - Misof et al. 2014" ) {
+      ANIMALtree <- read.tree("./Data/Insects_fig1_Misof_etal_2014.tre")
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -229,6 +231,9 @@ shinyServer(function(input, output, session) {
       }
       else if (input$ANIMALphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014") {
       ANIMALoutgroup.labels<-c("ANAPL","GALGA","MELGA","TINMA","STRCA")
+      }
+      else if (input$ANIMALphyloSelect == "Insects, 144 taxa - Misof et al. 2014") {
+      ANIMALoutgroup.labels<-c("IXODES_S")
       }
       else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
       ANIMALoutgroup.labels<-c("P001_Platypus")
@@ -254,6 +259,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Jarvis et al. 2014, Science doi: 10.1126/science.1253451")
       } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
         paste("If you use this subtree, please cite: Tarver et al. 2016, Genome Biology and Evolution doi: 10.1093/gbe/evv261 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
+      } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
+        paste("If you use this subtree, please cite: Misof et al. 2014, Science doi: 10.1126/science.1257570 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
