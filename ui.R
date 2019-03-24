@@ -185,7 +185,7 @@ shinyUI(fluidPage(
       sidebarLayout(
         sidebarPanel(
           # drop down select menu to select phylogeny
-          selectInput("phyloSelect", "Phylogeny:",
+          selectInput("TOLphyloSelect", "Phylogeny:",
             choices=c("Tree of life, 3,083 taxa - Hug et al. 2016")
                       ),
           # input file
