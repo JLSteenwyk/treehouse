@@ -416,7 +416,7 @@ shinyServer(function(input, output, session) {
 
   ### TREE OF LIFE
   ## read in file reactively
-  data <- eventReactive(input$TOLgo, { 
+  TOLdata <- eventReactive(input$TOLgo, { 
     req(input$TOLfile)
     inFile <- input$TOLfile
     taxa.list<-read.table(inFile$datapath)
