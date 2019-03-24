@@ -7,7 +7,7 @@ shinyUI(fluidPage(
     tabPanel("userTree",
       # display logo
       titlePanel(title=div(img(src="treehouse_logo.png",""))), 
-      h1("treehouse is currently under development - please do not use")
+      h1("treehouse is currently under development - please do not use"),
       hr(),
       # Create a spot for the choices
       sidebarLayout(
