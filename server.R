@@ -365,7 +365,7 @@ shinyServer(function(input, output, session) {
       PLANToutgroup.labels<-c("Monosiga", "Salpingoeca")
       }
       else {
-      ANIMALoutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
+      PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
       }
     })
 
