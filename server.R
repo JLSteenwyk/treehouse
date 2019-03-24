@@ -19,7 +19,7 @@ shinyServer(function(input, output, session) {
   
   ### FUNGI
   ## read in file reactively
-  data <- eventReactive(input$FUNGIgo, { 
+  FUNGIdata <- eventReactive(input$FUNGIgo, { 
     req(input$file)
     inFile <- input$file
     taxa.list<-read.table(inFile$datapath)
