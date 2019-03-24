@@ -226,7 +226,7 @@ shinyServer(function(input, output, session) {
       # return to df_subset
       return(a)
     })
-  output$ANIMALtaxaTable <- renderTable(tipNames())
+  output$ANIMALtaxaTable <- renderTable(ANIMALtipNames())
   
   ## function to create plot
   output$ANIMALphyloPlot <- renderPlot({
@@ -298,7 +298,7 @@ shinyServer(function(input, output, session) {
 
   ### PLANT
   ## read in file reactively
-  data <- eventReactive(input$PLANTgo, { 
+  PLANTdata <- eventReactive(input$PLANTgo, { 
     req(input$file)
     inFile <- input$file
     taxa.list<-read.table(inFile$datapath)
@@ -306,23 +306,23 @@ shinyServer(function(input, output, session) {
     })
 
   ## read in tree based on selected tree
-  tree <- eventReactive(input$PLANTgo, {
+  PLANTtree <- eventReactive(input$PLANTgo, {
     if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-      tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else 
-      tree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
 
   ## select outgroup labels based on selected tree
-  outgroup.labels <- eventReactive(input$go, {input$phyloSelect
+  PLANToutgroup.labels <- eventReactive(input$go, {input$phyloSelect
     if (input$PLANThyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-      outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      PLANToutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
       else if (input$PLANTphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
-      outgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
+      PLANToutgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
       else {
-      outgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      PLANToutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
     })
 
@@ -337,22 +337,22 @@ shinyServer(function(input, output, session) {
     })
 
   ## display table of taxa names
-  tipNames <- eventReactive(input$PLANTgo, {
-      a<-data.frame(tree()$tip.label)
+  PLANTtipNames <- eventReactive(input$PLANTgo, {
+      a<-data.frame(PLANTtree()$tip.label)
       # replace column name to "full list of taxa"
       colnames(a)[1]<-"full list of taxa for possible subtree"
       # return to df_subset
       return(a)
     })
-  output$PLANTtaxaTable <- renderTable(tipNames())
+  output$PLANTtaxaTable <- renderTable(PLANTtipNames())
   
   ## function to create plot
   output$PLANTphyloPlot <- renderPlot({
     # root tree
-    tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE) 
+    tree<-root(PLANTtree(), outgroup = PLANToutgroup.labels(), resolve.root = TRUE) 
     # drop outgroup tips not in ingroup.labels
-    ingroup.labels<-as.vector(data()$V1)
-    outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
+    ingroup.labels<-as.vector(PLANTdata()$V1)
+    outgroup.labels<-setdiff(PLANToutgroup.labels(),ingroup.labels)
     tree<-drop.tip(tree, outgroup.labels)
     # prune taxa not of interest
     pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
@@ -373,10 +373,10 @@ shinyServer(function(input, output, session) {
       # open the pdf
       pdf(file)
       # root tree
-      tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+      tree<-root(PLANTtree(), outgroup = PLANToutgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
-      ingroup.labels<-as.vector(data()$V1)
-      outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
+      ingroup.labels<-as.vector(PLANTdata()$V1)
+      outgroup.labels<-setdiff(PLANToutgroup.labels(),ingroup.labels)
       tree<-drop.tip(tree, outgroup.labels)
       # prune taxa not of interest
       pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
@@ -399,8 +399,8 @@ shinyServer(function(input, output, session) {
       # root tree
       tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
-      ingroup.labels<-as.vector(data()$V1)
-      outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
+      ingroup.labels<-as.vector(PLANTdata()$V1)
+      outgroup.labels<-setdiff(PLANToutgroup.labels(),ingroup.labels)
       tree<-drop.tip(tree, outgroup.labels)
       # prune taxa not of interest
       pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
