@@ -42,6 +42,53 @@ shinyUI(fluidPage(
       )
     # close tabPanel, userTree
     ),
+    tabPanel("Animal",
+      # display logo
+      titlePanel(title=div(img(src="treehouse_logo.png",""))), 
+      hr(),
+      # Create a spot for the choices
+      sidebarLayout(
+        sidebarPanel(
+          # drop down select menu to select phylogeny
+          selectInput("ANIMALphyloSelect", "Phylogeny:",
+            choices=c("Birds, 198 taxa - Prum et al. 2015",
+                      "Birds, 48 taxa - Jarvis et al. 2014",
+                      "Metazoans, 36 taxa - Borowiec et al. 2015",
+                      "Metazoans, 70 taxa - Whelan et al. 2015",
+                      "Vertebrates, 58 taxa - Chen et al. 2015")
+                      ),
+          # input file
+          fileInput("ANIMALfile", "File input:"),
+          # reactive button
+          actionButton("ANIMALgo", "Update"),
+          hr(),
+          # user instructions
+          h5("Quick Start"),
+          p("1) Select a phylogeny you want a subtree from"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree."),
+          p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
+          p("3) Press the update button to display your desired subtree"),
+          p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
+          hr(),
+          helpText("treehouse is developed and maintained by ", a("Jacob L. Steenwyk",href="https://jlsteenwyk.github.io/"))
+        ),
+        
+        # plot phylogeny in main panel
+        mainPanel(
+          plotOutput("ANIMALphyloPlot", width = "100%"),
+          # download buttons
+          downloadButton(outputId = "ANIMALTreePlot", label = "Download Plot"),
+          downloadButton(outputId = "ANIMALNewick", label = "Download Newick File"),
+          hr(),
+          textOutput("ANIMALcitationText"),
+          hr(),
+          tableOutput('ANIMALtaxaTable')
+          # close mainPanel
+          )
+      # close sidebarLayout
+      )
+    # close tabPanel, Animal
+    ),
     tabPanel("Fungi",
       # display logo
       titlePanel(title=div(img(src="treehouse_logo.png",""))), 
@@ -92,53 +139,6 @@ shinyUI(fluidPage(
       )
     # close tabPanel, Fungi
     ),
-    tabPanel("Animal",
-      # display logo
-      titlePanel(title=div(img(src="treehouse_logo.png",""))), 
-      hr(),
-      # Create a spot for the choices
-      sidebarLayout(
-        sidebarPanel(
-          # drop down select menu to select phylogeny
-          selectInput("ANIMALphyloSelect", "Phylogeny:",
-            choices=c("Birds, 198 taxa - Prum et al. 2015",
-                      "Birds, 48 taxa - Jarvis et al. 2014",
-                      "Metazoans, 36 taxa - Borowiec et al. 2015",
-                      "Metazoans, 70 taxa - Whelan et al. 2015",
-                      "Vertebrates, 58 taxa - Chen et al. 2015")
-                      ),
-          # input file
-          fileInput("ANIMALfile", "File input:"),
-          # reactive button
-          actionButton("ANIMALgo", "Update"),
-          hr(),
-          # user instructions
-          h5("Quick Start"),
-          p("1) Select a phylogeny you want a subtree from"),
-          p("2) Upload a single column text file with species names of desired taxa in subtree."),
-          p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
-          p("3) Press the update button to display your desired subtree"),
-          p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
-          hr(),
-          helpText("treehouse is developed and maintained by ", a("Jacob L. Steenwyk",href="https://jlsteenwyk.github.io/"))
-        ),
-        
-        # plot phylogeny in main panel
-        mainPanel(
-          plotOutput("ANIMALphyloPlot", width = "100%"),
-          # download buttons
-          downloadButton(outputId = "ANIMALTreePlot", label = "Download Plot"),
-          downloadButton(outputId = "ANIMALNewick", label = "Download Newick File"),
-          hr(),
-          textOutput("ANIMALcitationText"),
-          hr(),
-          tableOutput('ANIMALtaxaTable')
-          # close mainPanel
-          )
-      # close sidebarLayout
-      )
-    # close tabPanel, Animal
-    ),
     tabPanel("Plant",
       # display logo
       titlePanel(title=div(img(src="treehouse_logo.png",""))), 
@@ -148,7 +148,7 @@ shinyUI(fluidPage(
         sidebarPanel(
           # drop down select menu to select phylogeny
           selectInput("PLANTphyloSelect", "Phylogeny:",
-            choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018")
+            choices=c("Flowering plants, 45 taxa - Xi et al. 2014")
                       ),
           # input file
           fileInput("PLANTfile", "File input:"),

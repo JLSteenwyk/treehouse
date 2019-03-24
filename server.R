@@ -340,29 +340,29 @@ shinyServer(function(input, output, session) {
 
   ## read in tree based on selected tree
   PLANTtree <- eventReactive(input$PLANTgo, {
-    if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-      PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+    if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
+      PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
     } else 
-      PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+      PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
   })
 
   ## select outgroup labels based on selected tree
   PLANToutgroup.labels <- eventReactive(input$PLANTgo, {input$PLANTphyloSelect
-    if (input$PLANThyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-      PLANToutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+    if (input$PLANThyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
+      PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
       }
       else if (input$PLANTphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
       PLANToutgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
       }
       else {
-      PLANToutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
       }
     })
 
   ## display proper citation based on associated manuscript
   output$PLANTcitationText <- renderText({
-      if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
+      if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
+        paste("If you use this subtree, please cite: Xi et al. 2014, Systematic biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302", "This phylogeny has meaningful branch lengths as supplied by Zhou et al. 2017 IQ-tree run." sep="\n")
       } else if (input$PLANTphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
         paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
       } else 
