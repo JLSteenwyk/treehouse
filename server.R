@@ -194,7 +194,7 @@ shinyServer(function(input, output, session) {
     } else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
       ANIMALtree <- read.tree("./Data/Birds_fig1_Prum_etal_2015.tre")   
     } else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
-      ANIMALtree <- read.tree("./Data/Vertebrates_fig1_Chen_etal_2015.tre")   
+      ANIMALtree <- read.nexus("./Data/Vertebrates_fig1_Chen_etal_2015.tre")   
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
