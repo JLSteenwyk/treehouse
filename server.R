@@ -206,8 +206,10 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Birds_fig1_Jarvis_etal_2014.tre")
     } else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016" ) {
       ANIMALtree <- read.tree("./Data/Mammals_fig2_Tarver_etal_2016.tre")
-      } else if (input$ANIMALphyloSelect == "Insects, 144 taxa - Misof et al. 2014" ) {
+    } else if (input$ANIMALphyloSelect == "Insects, 144 taxa - Misof et al. 2014" ) {
       ANIMALtree <- read.tree("./Data/Insects_fig1_Misof_etal_2014.tre")
+    } else if (input$ANIMALphyloSelect == "Mammals, 37 taxa - Song et al. 2016" ) {
+      ANIMALtree <- read.tree("./Data/Mammals_fig1_Song_etal_2012.tre")
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -237,6 +239,9 @@ shinyServer(function(input, output, session) {
       }
       else if (input$ANIMALphyloSelect == "Mammals, 36 taxa - Tarver et al. 2016") {
       ANIMALoutgroup.labels<-c("P001_Platypus")
+      }
+      else if (input$ANIMALphyloSelect == "Mammals, 37 taxa - Song et al. 2016") {
+      ANIMALoutgroup.labels<-c("Gal","Orn")
       }
       else {
       ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")

@@ -54,6 +54,7 @@ shinyUI(fluidPage(
             choices=c("Birds, 198 taxa - Prum et al. 2015",
                       "Birds, 48 taxa - Jarvis et al. 2014",
                       "Insects, 144 taxa - Misof et al. 2014",
+                      "Mammals, 37 taxa - Song et al. 2016",
                       "Mammals, 36 taxa - Tarver et al. 2016",
                       "Metazoans, 36 taxa - Borowiec et al. 2015",
                       "Metazoans, 70 taxa - Whelan et al. 2015",
