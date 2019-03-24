@@ -363,7 +363,7 @@ shinyServer(function(input, output, session) {
       PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
       }
       else if (input$PLANTphyloSelect == "Caryophyllales_fig3_Yang_etal_2015.tre") {
-      PLANToutgroup.labels<-c("Ccle","Csin","Tcac","Grai","Cpap","Atha","Alyr","Crub","Brap","Thal","Lusi","Mesc","Rcom","Ptri","Pper","Mdom","Fves","Csat","Pvul","Gmax","Mtru","Egra","Vvin")
+      PLANToutgroup.labels<-c("Rcom","Ptri","Pper","Mdom","Fves","Csat","Pvul","Gmax","Mtru","Egra","Vvin","Ccle","Csin","Tcac","Grai","Cpap","Atha","Alyr","Crub","Brap","Thal","Lusi","Mesc")
       }
       else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
       PLANToutgroup.labels<-c("Monosiga", "Salpingoeca")
@@ -379,7 +379,7 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
       } else if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
         paste("If you use this subtree, please cite: Xi et al. 2014, Systematic Biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
-      } else if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
+      } else if (input$PLANTphyloSelect == "Caryophyllales, 95 taxa - Yang et al. 2015") {
         paste("If you use this subtree, please cite: Yang et al. 2015, Molecular Biology and Evolution. doi: 10.1093/molbev/msv081")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
