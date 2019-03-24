@@ -362,7 +362,7 @@ shinyServer(function(input, output, session) {
   ## display proper citation based on associated manuscript
   output$PLANTcitationText <- renderText({
       if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
-        paste("If you use this subtree, please cite: Xi et al. 2014, Systematic biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302", "This phylogeny has meaningful branch lengths as supplied by Zhou et al. 2017 IQ-tree run.", sep="\n")
+        paste("If you use this subtree, please cite: Xi et al. 2014, Systematic biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. This phylogeny has meaningful branch lengths as inferred by Zhou et al. 2017 IQ-tree run.")
       } else if (input$PLANTphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
         paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
       } else 
