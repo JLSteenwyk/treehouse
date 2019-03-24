@@ -102,7 +102,7 @@ shinyUI(fluidPage(
           selectInput("ANIMALphyloSelect", "Phylogeny:",
             choices=c("Birds, 198 taxa - Prum et al. 2015",
                       "Metazoans, 36 taxa - Borowiec et al. 2015",
-                      "Whelan, 70 taxa - Whelan et al. 2015",
+                      "Metazoans, 70 taxa - Whelan et al. 2015",
                       "Vertebrates, 58 taxa - Chen et al. 2015")
                       ),
           # input file
