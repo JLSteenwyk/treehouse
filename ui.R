@@ -12,7 +12,46 @@ library(shiny)
 # Define UI for application
 shinyUI(fluidPage(
   navbarPage("",
-    tabPanel("treehouseDB",
+    # open userTree
+    tabPanel("userTree",
+      # display logo
+      titlePanel(title=div(img(src="treehouse_logo.png",""))), 
+      hr(),
+      # Create a spot for the choices
+      sidebarLayout(
+        sidebarPanel(
+          # input file
+          fileInput("treeFile", "Tree input:"),
+          # input file
+          fileInput("fileUser", "Taxa input:"),
+          # reactive button
+          actionButton("userGO", "Update"),
+          hr(),
+          # user instructions
+          h5("Quick Start"),
+          p("1) Upload a phylogeny you want a subtree from in Tree input:'"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
+          p("3) Press the update button to display your desired subtree"),
+          p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
+          hr(),
+          helpText("treehouse is developed and maintained by ", a("Jacob L. Steenwyk",href="https://jlsteenwyk.github.io/"))
+        ),
+        
+        # plot phylogeny in main panel
+        mainPanel(
+          plotOutput("userPhyloPlot", width = "100%"),
+          # download buttons
+          downloadButton(outputId = "userTreePlot", label = "Download Plot"),
+          downloadButton(outputId = "userNewick", label = "Download Newick File"),
+          hr()
+          # close mainPanel
+          )
+      # close sidebarLayout
+      )
+    # close tabPanel, userTree
+    ),
+    tabPanel("Fungi",
       # display logo
       titlePanel(title=div(img(src="treehouse_logo.png",""))), 
       hr(),
@@ -59,26 +98,27 @@ shinyUI(fluidPage(
           )
       # close sidebarLayout
       )
-    # close tabPanel, treehouseDB
+    # close tabPanel, Fungi
     ),
-    tabPanel("userTree",
-    #close tabPanel, Test
+    tabPanel("Animal",
       # display logo
       titlePanel(title=div(img(src="treehouse_logo.png",""))), 
       hr(),
       # Create a spot for the choices
       sidebarLayout(
         sidebarPanel(
+          # drop down select menu to select phylogeny
+          selectInput("phyloSelect", "Phylogeny:",
+            choices=c("Metazoans, 36 taxa - Borowiec et al. 2015")
+                      ),
           # input file
-          fileInput("treeFile", "Tree input:"),
-          # input file
-          fileInput("fileUser", "Taxa input:"),
+          fileInput("file", "File input:"),
           # reactive button
-          actionButton("userGO", "Update"),
+          actionButton("go", "Update"),
           hr(),
           # user instructions
           h5("Quick Start"),
-          p("1) Upload a phylogeny you want a subtree from in Tree input:'"),
+          p("1) Select a phylogeny you want a subtree from"),
           p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
           p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
           p("3) Press the update button to display your desired subtree"),
@@ -89,16 +129,107 @@ shinyUI(fluidPage(
         
         # plot phylogeny in main panel
         mainPanel(
-          plotOutput("userPhyloPlot", width = "100%"),
+          plotOutput("phyloPlot", width = "100%"),
           # download buttons
-          downloadButton(outputId = "userTreePlot", label = "Download Plot"),
-          downloadButton(outputId = "userNewick", label = "Download Newick File"),
-          hr()
+          downloadButton(outputId = "TreePlot", label = "Download Plot"),
+          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          hr(),
+          textOutput("citationText"),
+          hr(),
+          tableOutput('taxaTable')
           # close mainPanel
           )
       # close sidebarLayout
       )
-    # close tabPanel, treehouseDB
+    # close tabPanel, Animal
+    ),
+    tabPanel("Plant",
+      # display logo
+      titlePanel(title=div(img(src="treehouse_logo.png",""))), 
+      hr(),
+      # Create a spot for the choices
+      sidebarLayout(
+        sidebarPanel(
+          # drop down select menu to select phylogeny
+          selectInput("phyloSelect", "Phylogeny:",
+            choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018")
+                      ),
+          # input file
+          fileInput("file", "File input:"),
+          # reactive button
+          actionButton("go", "Update"),
+          hr(),
+          # user instructions
+          h5("Quick Start"),
+          p("1) Select a phylogeny you want a subtree from"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
+          p("3) Press the update button to display your desired subtree"),
+          p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
+          hr(),
+          helpText("treehouse is developed and maintained by ", a("Jacob L. Steenwyk",href="https://jlsteenwyk.github.io/"))
+        ),
+        
+        # plot phylogeny in main panel
+        mainPanel(
+          plotOutput("phyloPlot", width = "100%"),
+          # download buttons
+          downloadButton(outputId = "TreePlot", label = "Download Plot"),
+          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          hr(),
+          textOutput("citationText"),
+          hr(),
+          tableOutput('taxaTable')
+          # close mainPanel
+          )
+      # close sidebarLayout
+      )
+    # close tabPanel, Plant
+    ),
+    tabPanel("Tree of Life",
+      # display logo
+      titlePanel(title=div(img(src="treehouse_logo.png",""))), 
+      hr(),
+      # Create a spot for the choices
+      sidebarLayout(
+        sidebarPanel(
+          # drop down select menu to select phylogeny
+          selectInput("phyloSelect", "Phylogeny:",
+            choices=c("Tree of life, 3,083 taxa - Hug et al. 2016")
+                      ),
+          # input file
+          fileInput("file", "File input:"),
+          # reactive button
+          actionButton("go", "Update"),
+          hr(),
+          # user instructions
+          h5("Quick Start"),
+          p("1) Select a phylogeny you want a subtree from"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
+          p("3) Press the update button to display your desired subtree"),
+          p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
+          hr(),
+          helpText("treehouse is developed and maintained by ", a("Jacob L. Steenwyk",href="https://jlsteenwyk.github.io/"))
+        ),
+        
+        # plot phylogeny in main panel
+        mainPanel(
+          plotOutput("phyloPlot", width = "100%"),
+          # download buttons
+          downloadButton(outputId = "TreePlot", label = "Download Plot"),
+          downloadButton(outputId = "Newick", label = "Download Newick File"),
+          hr(),
+          textOutput("citationText"),
+          hr(),
+          tableOutput('taxaTable')
+          # close mainPanel
+          )
+      # close sidebarLayout
+      )
+    # close tabPanel, Plant
     )
+  # close navbarPage
   )
+# close shinyUI and fliudPage  
 ))
