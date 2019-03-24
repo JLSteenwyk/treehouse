@@ -210,6 +210,8 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Insects_fig1_Misof_etal_2014.tre")
     } else if (input$ANIMALphyloSelect == "Mammals, 37 taxa - Song et al. 2016" ) {
       ANIMALtree <- read.tree("./Data/Mammals_fig1_Song_etal_2012.tre")
+    } else if (input$ANIMALphyloSelect == "Worms, 100 taxa - Struck et al. 2015" ) {
+      ANIMALtree <- read.tree("./Data/Worms_fig1_Struck_etal_2015.tre")
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -243,6 +245,9 @@ shinyServer(function(input, output, session) {
       else if (input$ANIMALphyloSelect == "Mammals, 37 taxa - Song et al. 2016") {
       ANIMALoutgroup.labels<-c("Gal","Orn")
       }
+      else if (input$ANIMALphyloSelect == "Worms, 100 taxa - Struck et al. 2015") {
+      ANIMALoutgroup.labels<-c("Crassostrea_gigas","Lottia_gigantea","Euprymna_scolopes","Hanleya_sp")
+      }
       else {
       ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -268,6 +273,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Misof et al. 2014, Science doi: 10.1126/science.1257570 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else if (input$ANIMALphyloSelect == "Mammals, 37 taxa - Song et al. 2016") {
         paste("If you use this subtree, please cite: Song et al. 2012, Proceedings of the National Academy of Sciences of the USA doi: 10.1073/pnas.1211733109 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
+      } else if (input$ANIMALphyloSelect == "Worms, 100 taxa - Struck et al. 2015") {
+        paste("If you use this subtree, please cite: Struck et al. 2015, Current Biology doi: 10.1016/j.cub.2015.06.007 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
