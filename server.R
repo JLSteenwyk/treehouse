@@ -195,7 +195,7 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Birds_fig1_Prum_etal_2015.tre")   
     } else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
       ANIMALtree <- read.nexus("./Data/Vertebrates_fig1_Chen_etal_2015.tre")  
-    } else if (input$ANIMALphyloSelect == "Whelan, 70 taxa - Whelan et al. 2015" ) {
+    } else if (input$ANIMALphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015" ) {
       ANIMALtree <- read.tree("./Data/Metazoan_fig3_Whelan_etal_2015.tre")
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
@@ -215,7 +215,7 @@ shinyServer(function(input, output, session) {
       else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
       ANIMALoutgroup.labels<-c("Cmi", "Sca", "Ler")
       }
-      else if (input$ANIMALphyloSelect == "Whelan, 70 taxa - Whelan et al. 2015") {
+      else if (input$ANIMALphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015") {
       ANIMALoutgroup.labels<-c("Allomyces_macrogynus","Rhizopus_oryzae","Mortierella_verticillata","Spizellomyces_punctatus")
       }
       else {
@@ -233,8 +233,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Prum et al. 2015, Nature doi: 10.1038/nature15697")
       } else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
         paste("If you use this subtree, please cite: Vertebrates et al. 2015, Systematic Biology doi: 10.1093/sysbio/syv059")
-      } else if (input$ANIMALphyloSelect == "Whelan, 70 taxa - Whelan et al. 2015") {
-        paste("If you use this subtree, please cite: Whelan et al. 2015, Proceedings of the National Academy of Sciences of the USA doi: 10.1073/pnas.1503453112")
+      } else if (input$ANIMALphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015") {
+        paste("If you use this subtree, please cite: Whelan et al. 2015, Proceedings of the National Academy of Sciences of the USA doi: 10.1073/pnas.1503453112") 
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
