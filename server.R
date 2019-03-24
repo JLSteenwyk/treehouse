@@ -358,14 +358,14 @@ shinyServer(function(input, output, session) {
 
   ## select outgroup labels based on selected tree
   PLANToutgroup.labels <- eventReactive(input$PLANTgo, {input$PLANTphyloSelect
-    if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-      PLANToutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+    if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
+      PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
       }
       else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
       PLANToutgroup.labels<-c("Monosiga", "Salpingoeca")
       }
       else {
-      ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
+      ANIMALoutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
       }
     })
 
