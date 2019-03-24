@@ -152,7 +152,8 @@ shinyUI(fluidPage(
           # drop down select menu to select phylogeny
           selectInput("PLANTphyloSelect", "Phylogeny:",
             choices=c("Caryophyllales, 95 taxa - Yang et al. 2015",
-                      "Flowering plants, 45 taxa - Xi et al. 2014")
+                      "Flowering plants, 45 taxa - Xi et al. 2014",
+                      "Land plants, 103 taxa - Wickett et al. 2014")
                       ),
           # input file
           fileInput("PLANTfile", "File input:"),

@@ -266,6 +266,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Tarver et al. 2016, Genome Biology and Evolution doi: 10.1093/gbe/evv261 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else if (input$ANIMALphyloSelect == "Insects, 144 taxa - Misof et al. 2014") {
         paste("If you use this subtree, please cite: Misof et al. 2014, Science doi: 10.1126/science.1257570 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
+      } else if (input$ANIMALphyloSelect == "Mammals, 37 taxa - Song et al. 2016") {
+        paste("If you use this subtree, please cite: Song et al. 2012, Proceedings of the National Academy of Sciences of the USA doi: 10.1073/pnas.1211733109 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
@@ -365,6 +367,8 @@ shinyServer(function(input, output, session) {
       PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")  
     } else if (input$PLANTphyloSelect == "Caryophyllales, 95 taxa - Yang et al. 2015") {
       PLANTtree <- read.tree("./Data/Caryophyllales_fig3_Yang_etal_2015.tre")  
+    } else if (input$PLANTphyloSelect == "Land plants, 103 taxa - Wickett et al. 2014") {
+      PLANTtree <- read.tree("./Data/Land_plants_fig2_Wickett_etal_2014.tre")
     } else 
       PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -377,8 +381,8 @@ shinyServer(function(input, output, session) {
       else if (input$PLANTphyloSelect == "Caryophyllales, 95 taxa - Yang et al. 2015") {
       PLANToutgroup.labels<-c("Rcom","Ptri","Pper","Mdom","Fves","Csat","Pvul","Gmax","Mtru","Egra","Vvin","Ccle","Csin","Tcac","Grai","Cpap","Atha","Alyr","Crub","Brap","Thal","Lusi","Mesc")
       }
-      else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
-      PLANToutgroup.labels<-c("Monosiga", "Salpingoeca")
+      else if (input$PLANTphyloSelect == "Land plants, 103 taxa - Wickett et al. 2014") {
+      PLANToutgroup.labels<-c("Uronema_sp", "Monomastix_opisthostigma","Nephroselmis_pyriformis","Pyramimonas_parkeae")
       }
       else {
       PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
@@ -393,6 +397,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Xi et al. 2014, Systematic Biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else if (input$PLANTphyloSelect == "Caryophyllales, 95 taxa - Yang et al. 2015") {
         paste("If you use this subtree, please cite: Yang et al. 2015, Molecular Biology and Evolution. doi: 10.1093/molbev/msv081")
+      } else if (input$PLANTphyloSelect == "Land plants, 103 taxa - Wickett et al. 2014") {
+        paste("If you use this subtree, please cite: Wickett et al. 2014, Proceedings of the National Academy of Sciences of the USA. doi: 10.1073/pnas.1323926111")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })

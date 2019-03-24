@@ -1,0 +1,7 @@
+Sphagnum_lescurii
+Polytrichum_commune
+Physcomitrella_patens
+Ceratodon_purpureus
+Hedwigia_ciliata
+Rhynchostegium_serrulatum
+Thuidium_delicatulum
