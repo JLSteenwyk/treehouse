@@ -58,7 +58,8 @@ shinyUI(fluidPage(
                       "Mammals, 36 taxa - Tarver et al. 2016",
                       "Metazoans, 36 taxa - Borowiec et al. 2015",
                       "Metazoans, 70 taxa - Whelan et al. 2015",
-                      "Vertebrates, 58 taxa - Chen et al. 2015")
+                      "Vertebrates, 58 taxa - Chen et al. 2015",
+                      "Worms, 100 taxa - Struck et al. 2015")
                       ),
           # input file
           fileInput("ANIMALfile", "File input:"),
