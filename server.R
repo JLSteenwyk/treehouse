@@ -191,6 +191,8 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
+    } else if (input$ANIMALphyloSelect == "Birds, 200 taxa - Prum et al. 2015") {
+      ANIMALtree <- read.tree("./Data/Birds_fig1_Prum_etal_2015.tre")   
     } else 
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")
   })
@@ -203,8 +205,11 @@ shinyServer(function(input, output, session) {
       else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
       ANIMALoutgroup.labels<-c("Monosiga", "Salpingoeca")
       }
+      else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
+      ANIMALoutgroup.labels<-c("I0461_HERP_15451_Alligatoridae_Caiman_croccodilus", "I0460_HERP_14722_Crocodylidae_Crocodylus_porosus")
+      }
       else {
-      ANIMALoutgroup.labels<-c("Monosiga", "Salpingoeca")
+      ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
     })
 
@@ -214,8 +219,10 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
       } else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
         paste("If you use this subtree, please cite: Borowiec et al. 2015, BMC Genomics. doi: 10.1186/s12864-015-2146-4")
+      } else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
+        paste("If you use this subtree, please cite: Prum et al. 2015, Nature doi: 10.1038/nature15697")
       } else 
-        paste("If you use this subtree, please cite: Metazoans, 36 taxa - Borowiec et al. 2015")
+        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
 
   ## display table of taxa names

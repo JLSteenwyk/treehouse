@@ -100,7 +100,8 @@ shinyUI(fluidPage(
         sidebarPanel(
           # drop down select menu to select phylogeny
           selectInput("ANIMALphyloSelect", "Phylogeny:",
-            choices=c("Metazoans, 36 taxa - Borowiec et al. 2015")
+            choices=c("Birds, 200 taxa - Prum et al. 2015",
+                      "Metazoans, 36 taxa - Borowiec et al. 2015")
                       ),
           # input file
           fileInput("ANIMALfile", "File input:"),
