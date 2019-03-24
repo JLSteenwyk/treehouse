@@ -196,7 +196,7 @@ shinyServer(function(input, output, session) {
     } else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
       ANIMALtree <- read.nexus("./Data/Vertebrates_fig1_Chen_etal_2015.tre")  
     } else if (input$ANIMALphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015" ) {
-      ANIMALtree <- read.tree("./Data/Metazoan_fig3_Whelan_etal_2015.tre")
+      ANIMALtree <- read.tree("./Data/Metazoans_fig3_Whelan_etal_2015.tre")
     } else 
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
