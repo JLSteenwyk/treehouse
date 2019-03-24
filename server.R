@@ -340,34 +340,41 @@ shinyServer(function(input, output, session) {
 
   ## read in tree based on selected tree
   PLANTtree <- eventReactive(input$PLANTgo, {
-    if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
-      PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
-    }
-    else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
-      PLANTtree<-read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
+    if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+      PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
+    } else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
+      PLANTtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
+    } else if (input$PLANTphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
+      PLANTtree <- read.tree("./Data/Birds_fig1_Prum_etal_2015.tre")   
+    } else if (input$PLANTphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
+      PLANTtree <- read.nexus("./Data/Vertebrates_fig1_Chen_etal_2015.tre")  
+    } else if (input$PLANTphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015" ) {
+      PLANTtree <- read.tree("./Data/Metazoans_fig3_Whelan_etal_2015.tre")
+    } else if (input$PLANTphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014" ) {
+      PLANTtree <- read.tree("./Data/Birds_fig1_Jarvis_etal_2014.tre")
     } else 
-      PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")
+      PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
 
   ## select outgroup labels based on selected tree
   PLANToutgroup.labels <- eventReactive(input$PLANTgo, {input$PLANTphyloSelect
-    if (input$PLANThyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
-      PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
+    if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+      PLANToutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
-      else if (input$PLANTphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
-      PLANToutgroup.labels<-c("Schizosaccharomyces_pombe","Arthrobotrys_oligospora","Neurospora_crassa","Fusarium_graminearum","Geotrichum_candidum_3C", "Botrytis_cinerea", "Sclerotinia_sclerotiorum", "Stagonospora_nodorum", "Aspergillus_nidulans","Xylona_heveae")
+      else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
+      PLANToutgroup.labels<-c("Monosiga", "Salpingoeca")
       }
       else {
-      PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
+      ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
     })
 
   ## display proper citation based on associated manuscript
   output$PLANTcitationText <- renderText({
-      if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
-        paste("If you use this subtree, please cite: Xi et al. 2014, Systematic biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. This phylogeny has meaningful branch lengths as inferred by Zhou et al. 2017 IQ-tree run.")
-      } else if (input$PLANTphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
-        paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
+      if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
+      } else if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
+        paste("If you use this subtree, please cite: Xi et al. 2014, Systematic Biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })
@@ -401,7 +408,7 @@ shinyServer(function(input, output, session) {
   })
   
   ## save pdf
-  output$PLANTTreePlot<- downloadHandler(
+  output$ANIMALTreePlot<- downloadHandler(
     #Specify The File Name 
     filename = function() {
       paste("treehouse-",Sys.Date(),".pdf",sep= "")},
