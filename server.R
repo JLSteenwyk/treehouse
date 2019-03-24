@@ -282,7 +282,7 @@ shinyServer(function(input, output, session) {
       tree<-root(ANIMALtree(), outgroup = ANIMALoutgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
       ingroup.labels<-as.vector(ANIMALdata()$V1)
-      outgroup.labels<-setdiff(outgroup.labels(),ingroup.labels)
+      outgroup.labels<-setdiff(ANIMALoutgroup.labels(),ingroup.labels)
       tree<-drop.tip(tree, outgroup.labels)
       # prune taxa not of interest
       pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
