@@ -362,7 +362,7 @@ shinyServer(function(input, output, session) {
     if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
       PLANToutgroup.labels<-c("Picea","Pinus","Zamia","Selaginella")
       }
-      else if (input$PLANTphyloSelect == "Caryophyllales_fig3_Yang_etal_2015.tre") {
+      else if (input$PLANTphyloSelect == "Caryophyllales, 95 taxa - Yang et al. 2015") {
       PLANToutgroup.labels<-c("Rcom","Ptri","Pper","Mdom","Fves","Csat","Pvul","Gmax","Mtru","Egra","Vvin","Ccle","Csin","Tcac","Grai","Cpap","Atha","Alyr","Crub","Brap","Thal","Lusi","Mesc")
       }
       else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
