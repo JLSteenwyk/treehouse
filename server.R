@@ -193,8 +193,10 @@ shinyServer(function(input, output, session) {
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
     } else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
       ANIMALtree <- read.tree("./Data/Birds_fig1_Prum_etal_2015.tre")   
+    } else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
+      ANIMALtree <- read.tree("./Data/Vertebrates_fig1_Chen_etal_2015.tre")   
     } else 
-      ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")
+      ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
 
   ## select outgroup labels based on selected tree
@@ -207,6 +209,9 @@ shinyServer(function(input, output, session) {
       }
       else if (input$ANIMALphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
       ANIMALoutgroup.labels<-c("I0461_HERP_15451_Alligatoridae_Caiman_croccodilus", "I0460_HERP_14722_Crocodylidae_Crocodylus_porosus")
+      }
+      else if (input$ANIMALphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
+      ANIMALoutgroup.labels<-c("Cmi", "Sca", "Ler")
       }
       else {
       ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
