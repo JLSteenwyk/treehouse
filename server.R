@@ -342,16 +342,8 @@ shinyServer(function(input, output, session) {
   PLANTtree <- eventReactive(input$PLANTgo, {
     if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
       PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
-    } else if (input$PLANTphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
-      PLANTtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
-    } else if (input$PLANTphyloSelect == "Birds, 198 taxa - Prum et al. 2015") {
-      PLANTtree <- read.tree("./Data/Birds_fig1_Prum_etal_2015.tre")   
-    } else if (input$PLANTphyloSelect == "Vertebrates, 58 taxa - Chen et al. 2015") {
-      PLANTtree <- read.nexus("./Data/Vertebrates_fig1_Chen_etal_2015.tre")  
-    } else if (input$PLANTphyloSelect == "Metazoans, 70 taxa - Whelan et al. 2015" ) {
-      PLANTtree <- read.tree("./Data/Metazoans_fig3_Whelan_etal_2015.tre")
-    } else if (input$PLANTphyloSelect == "Birds, 48 taxa - Jarvis et al. 2014" ) {
-      PLANTtree <- read.tree("./Data/Birds_fig1_Jarvis_etal_2014.tre")
+    } else if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
+      PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")  
     } else 
       PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
