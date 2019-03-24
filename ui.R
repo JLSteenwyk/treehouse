@@ -21,7 +21,7 @@ shinyUI(fluidPage(
           # user instructions
           h5("Quick Start"),
           p("1) Upload a phylogeny you want a subtree from in Tree input:'"),
-          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree."),
           p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
           p("3) Press the update button to display your desired subtree"),
           p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
@@ -67,7 +67,7 @@ shinyUI(fluidPage(
           # user instructions
           h5("Quick Start"),
           p("1) Select a phylogeny you want a subtree from"),
-          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree."),
           p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
           p("3) Press the update button to display your desired subtree"),
           p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
@@ -110,7 +110,7 @@ shinyUI(fluidPage(
           # user instructions
           h5("Quick Start"),
           p("1) Select a phylogeny you want a subtree from"),
-          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree."),
           p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
           p("3) Press the update button to display your desired subtree"),
           p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),
@@ -153,7 +153,7 @@ shinyUI(fluidPage(
           # user instructions
           h5("Quick Start"),
           p("1) Select a phylogeny you want a subtree from"),
-          p("2) Upload a single column text file with species names of desired taxa in subtree. Species name format is 'Aspergillus_flavus'"),
+          p("2) Upload a single column text file with species names of desired taxa in subtree."),
           p("If you are unsure of what taxa names are used in the phylogeny, click the Update button and see the 'full list of taxa for possible subtree'"),
           p("3) Press the update button to display your desired subtree"),
           p("4) Download the figure as a pdf or a newick tree using the buttons below the phylogeny"),

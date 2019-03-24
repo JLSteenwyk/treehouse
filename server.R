@@ -299,8 +299,8 @@ shinyServer(function(input, output, session) {
   ### PLANT
   ## read in file reactively
   PLANTdata <- eventReactive(input$PLANTgo, { 
-    req(input$file)
-    inFile <- input$file
+    req(input$PLANTfile)
+    inFile <- input$PLANTfile
     taxa.list<-read.table(inFile$datapath)
     return(taxa.list)
     })
@@ -314,7 +314,7 @@ shinyServer(function(input, output, session) {
   })
 
   ## select outgroup labels based on selected tree
-  PLANToutgroup.labels <- eventReactive(input$go, {input$phyloSelect
+  PLANToutgroup.labels <- eventReactive(input$PLANTgo, {input$PLANTphyloSelect
     if (input$PLANThyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
       PLANToutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -397,7 +397,7 @@ shinyServer(function(input, output, session) {
       paste("treehouse-",Sys.Date(),".tre",sep= "")},
     content=function(file){
       # root tree
-      tree<-root(tree(), outgroup = outgroup.labels(), resolve.root = TRUE)
+      tree<-root(PLANTtree(), outgroup = PLANToutgroup.labels(), resolve.root = TRUE)
       # drop outgroup tips not in ingroup.labels
       ingroup.labels<-as.vector(PLANTdata()$V1)
       outgroup.labels<-setdiff(PLANToutgroup.labels(),ingroup.labels)
