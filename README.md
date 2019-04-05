@@ -7,7 +7,7 @@ Our aim is to make phylogenies more accessible to all and facilitate researchers
 ## Quick Start
 
 ### 1) Installing dependencies
-Function of this app requires the shiny R package. To install this package, execute the typical R command within the R environment.
+Function of this app requires the shiny and phytools R packages. To install these packages, execute the typical R command within the R environment.
 ```R
 install.packages("shiny", dep=T)
 install.packages("phytools", dep=T)
@@ -20,7 +20,7 @@ Treehouse has been tested using
 • shiny_1.2.0<br />
 
 ### 2) Opening up the shiny app
-After installing dependencies load shiny and run the shiny app by executing the following command in R
+After installing dependencies run the shiny app by executing the following command in R
 ```R
 shiny::runGitHub("treehouse", "JLSteenwyk")
 ```
