@@ -12,7 +12,7 @@ Function of this app requires the shiny and phytools R packages. To install thes
 install.packages("shiny", dep=T)
 install.packages("phytools", dep=T)
 ```
-Treehouse has been tested using
+Treehouse has been tested using<br />
 • R version 3.5.2 (2018-12-20) -- "Eggshell Igloo"<br />
 • phytools_0.6-60<br />
 • maps_3.3.0<br />
