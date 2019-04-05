@@ -13,6 +13,7 @@ install.packages("shiny", dep=T)
 install.packages("phytools", dep=T)
 ```
 Treehouse has been tested using
+• R version 3.5.2 (2018-12-20) -- "Eggshell Igloo"
 • phytools_0.6-60
 • maps_3.3.0
 • ape_5.3
