@@ -13,11 +13,11 @@ install.packages("shiny", dep=T)
 install.packages("phytools", dep=T)
 ```
 Treehouse has been tested using
-• R version 3.5.2 (2018-12-20) -- "Eggshell Igloo"
-• phytools_0.6-60
-• maps_3.3.0
-• ape_5.3
-• shiny_1.2.0
+• R version 3.5.2 (2018-12-20) -- "Eggshell Igloo"<br />
+• phytools_0.6-60<br />
+• maps_3.3.0<br />
+• ape_5.3<br />
+• shiny_1.2.0<br />
 
 ### 2) Opening up the shiny app
 After installing dependencies load shiny and run the shiny app by executing the following command in R
