@@ -1,0 +1,15 @@
+Aspergillus_terreus
+Penicillium_citrinum
+Penicillium_brasilianum
+Penicillium_polonicum
+Penicillium_solitum
+Penicillium_digitatum
+Penicillium_italicum
+Penicillium_expansum
+Aspergillus_tubingensis
+Aspergillus_niger
+Aspergillus_aculeatus
+Aspergillus_flavus
+Aspergillus_oryzae
+Aspergillus_parasiticus
+Aspergillus_nomius

@@ -1,0 +1,7 @@
+Hanseniaspora_singularis
+Hanseniaspora_valbyensis
+Hanseniaspora_uvarum
+Hanseniaspora_clermontiae
+Hanseniaspora_pseudoguilliermondii
+Hanseniaspora_osmophila
+Hanseniaspora_vinae

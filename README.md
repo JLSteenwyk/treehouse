@@ -46,7 +46,7 @@ To download the pdf of the phylogeny or the newick tree file, click "Download Pl
 | Taxa represented                | Number of tips           | Reference                                                                                                               |
 | ------------------------------- |:------------------------:| :---------------------------------------------------------------------------------------------------------------------: |
 | Birds                           | 198 taxa                 | [Prum, et al. 2015](https://www.nature.com/articles/nature15697)                                                        |
-| Birds                           | 48 taxa                  | [Jarvis et al. 2017](http://science.sciencemag.org/content/346/6215/1320)                                               |
+| Birds                           | 48 taxa                  | [Jarvis et al. 2014](http://science.sciencemag.org/content/346/6215/1320)                                               |
 | Insects                         | 144 taxa                 | [Misof et al. 2014](http://science.sciencemag.org/content/346/6210/763)                                                 |
 | Mammals                         | 37 taxa                  | [Song et al. 2016](https://www.pnas.org/content/109/37/14942)                                                           |
 | Mammals                         | 36 taxa                  | [Tarver, et al. 2016](https://academic.oup.com/gbe/article/8/2/330/2574016)                                             |
