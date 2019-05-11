@@ -35,7 +35,8 @@ shinyUI(fluidPage(
           # download buttons
           downloadButton(outputId = "userTreePlot", label = "Download Plot"),
           downloadButton(outputId = "userNewick", label = "Download Newick File"),
-          hr()
+          hr(),
+          tableOutput('USERtaxaTable')
           # close mainPanel
           )
       # close sidebarLayout
@@ -106,7 +107,7 @@ shinyUI(fluidPage(
                       "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017",
                       "Fungi, 214 taxa - James et al. 2006",
                       "Fungi, 60 taxa - Nagy et al. 2014",
-                      "Fungi, 5,284 taxa - Varga et al. 2019",
+                      "Agaricomycetes, 5,284 taxa - Varga et al. 2019",
                       "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018",
                       "Saccharomycotina, 86 taxa - Shen et al. 2016",
                       "Saccharomycotina, 332 taxa - Shen et al. 2018")

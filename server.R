@@ -40,7 +40,7 @@ shinyServer(function(input, output, session) {
       FUNGItree <- read.tree("./Data/Cryptococcus_neoformans_fig1_Desjardins_etal_2017.tre")  
     } else if (input$FUNGIphyloSelect == "Fungi, 214 taxa - James et al. 2006") {
       FUNGItree <- read.nexus("./Data/Fungi_fig1_James_etal_2006.nex.tre")  
-    } else if (input$FUNGIphyloSelect == "Fungi, 5,284 taxa - Varga et al. 2019") {
+    } else if (input$FUNGIphyloSelect == "Agaricomycetes, 5,284 taxa - Varga et al. 2019") {
       FUNGItree <- read.nexus("./Data/Fungi_fig1_Varga_etal_2019.nex.tre")  
     } else if (input$FUNGIphyloSelect == "Fungi, 60 taxa - Nagy et al. 2014") {
       FUNGItree <- read.tree("./Data/Fungi_fig1_Nagy_etal_2014.tre")  
@@ -70,7 +70,7 @@ shinyServer(function(input, output, session) {
       else if (input$FUNGIphyloSelect == "Fungi, 214 taxa - James et al. 2006") {
       FUNGIoutgroup.labels<-c("Chlamydomonas_reinhardtii","Oryza_sativa","Arabidopsis_thaliana","Populus_trichocarpa")
       }
-      else if (input$FUNGIphyloSelect == "Fungi, 5,284 taxa - Varga et al. 2019") {
+      else if (input$FUNGIphyloSelect == "Agaricomycetes, 5,284 taxa - Varga et al. 2019") {
       FUNGIoutgroup.labels<-c("Tremella_polyporina", "Syzygospora_effibulata", "Cryptococcus_podzolicus", "Asterotremella_humicola", "Trichosporon_scarabaeorum", "Trichosporon_domesticum", "Trichosporon_brassicae", "Trichosporon_montevideense", "Trichosporon_mycotoxinivorans", "Trichosporon_loubieri", "Trichosporon_multisporum", "Trichosporon_veenhuisii", "Trichosporon_laibachii", "Trichosporon_gracile", "Trichosporon_dulcitum", "Trichosporon_vadense", "Cryptococcus_humicola", "Trichosporon_wieringae", "Trichosporon_gamsii", "Trichosporon_sporotrichoides", "Trichosporon_porosum", "Trichosporon_inkin", "Trichosporon_coremiiforme", "Trichosporon_faecale", "Trichosporon_japonicum", "Trichosporon_jirovecii", "Trichosporon_debeurmannianum", "Trichosporon_dermatis", "Trichosporon_moniliiforme", "Tremella_globispora", "Cryptococcus_bacillisporus", "Cryptococcus_gattii", "Cryptococcus_neoformans", "Cryptococcus_neoformansvargrubii", "Tsuchiyaea_wingfieldii", "Cryptococcus_amylolentus", "Filobasidiella_depauperata", "Cryptococcus_dejecticola", "Cryptococcus_bestiolae", "Bullera_dendrophila", "Cryptococcus_heveanensis", "Derxomyces_linzhiensis", "Derxomyces_anomala", "Derxomyces_simaoensis", "Derxomyces_komagatae", "Derxomyces_schimicola", "Derxomyces_pseudoschimicola", "Dioszegia_takashimae", "Derxomyces_pseudocylindrica", "Derxomyces_wuzhishanensis", "Derxomyces_hainanensis", "Derxomyces_mrakii", "Derxomyces_boninensis", "Derxomyces_qinlingensis", "Derxomyces_pseudohuiaensis", "Derxomyces_cylindrica", "Derxomyces_waltii", "Derxomyces_nakasei", "Derxomyces_boekhoutii", "Derxomyces_huiaensis", "Derxomyces_hubeiensis", "Derxomyces_yunnanensis", "Sirobasidium_magnum", "Tremella_parmeliarum", "Trimorphomyces_nebularis", "Tremella_fuciformis", "Tremella_brasiliensis", "Tremella_indecorata", "Cryptococcus_laurentii", "Cryptococcus_rajasthanensis", "Cryptococcus_cellulolyticus", "Sirobasidium_brefeldianum", "Tremella_caloplacae", "Tremella_dendrographae", "Tremella_candelariellae", "Tremella_giraffa", "Tremella_cetrariicola", "Biatoropsis_usnearum", "Tremella_tuckerae", "Tremella_coppinsii", "Tremella_wirthii", "Tremella_pertusariae", "Tremella_ramalinae", "Tremella_lichenicola", "Tremella_everniae", "Tremella_hypogymniae", "Tremella_encephala", "Tremella_phaeophysciae", "Tremella_leptogii", "Tremella_lobariacearum", "Tremella_nephromatis", "Tremella_cladoniae", "Tremella_haematommatis", "Tremella_foliacea", "Tremella_mesenterica", "Fibulobasidium_inconspicuum", "Cryptococcus_magnus", "Syzygospora_pallida", "Syzygospora_alba", "Syzygospora_physciacearum", "Syzygospora_bachmannii", "Cryptococcus_terreus", "Cryptococcus_terricola", "Cryptococcus_aerius", "Cryptococcus_saitoi")
       }
       else if (input$FUNGIphyloSelect == "Fungi, 60 taxa - Nagy et al. 2014") {
@@ -95,7 +95,7 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Desjardins et al. 2017, Genome Research. doi: 10.1101/gr.218727.116")
       } else if (input$FUNGIphyloSelect == "Fungi, 214 taxa - James et al. 2006") {
         paste("If you use this subtree, please cite: James et al. 2006, Nature. doi: 10.1038/nature05110")
-      } else if (input$FUNGIphyloSelect == "Fungi, 5,284 taxa - Varga et al. 2019") {
+      } else if (input$FUNGIphyloSelect == "Agaricomycetes, 5,284 taxa - Varga et al. 2019") {
         paste("If you use this subtree, please cite: Varga et al. 2019, Nature Ecology and Evolution. doi: 10.1038/s41559-019-0834-1")
       } else if (input$FUNGIphyloSelect == "Fungi, 60 taxa - Nagy et al. 2014") {
         paste("If you use this subtree, please cite: Nagy et al. 2014, Nature Communications. doi: 10.1038/ncomms5471")
@@ -623,6 +623,16 @@ shinyServer(function(input, output, session) {
     inFile <- input$treeFile
     userTree <- read.tree(inFile$datapath)
   })
+
+  ## display table of taxa names
+  USERtipNames <- eventReactive(input$userGO, {
+      a<-data.frame(userTree()$tip.label)
+      # replace column name to "full list of taxa"
+      colnames(a)[1]<-"full list of taxa for possible subtree"
+      # return to df_subset
+      return(a)
+    })
+  output$USERtaxaTable <- renderTable(USERtipNames())
 
   ## function to create plot
   output$userPhyloPlot <- renderPlot({
