@@ -103,7 +103,7 @@ shinyUI(fluidPage(
         sidebarPanel(
           # drop down select menu to select phylogeny
           selectInput("FUNGIphyloSelect", "Phylogeny:",
-            choices=c("Aspergillaceae, 81 taxa - Steenwyk et al. 2018",
+            choices=c("Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019",
                       "Cryptococcus neoformans, 387 strains - Desjardins et al. 2017",
                       "Fungi, 214 taxa - James et al. 2006",
                       "Fungi, 60 taxa - Nagy et al. 2014",

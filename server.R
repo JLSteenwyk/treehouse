@@ -28,7 +28,7 @@ shinyServer(function(input, output, session) {
 
   ## read in tree based on selected tree
   FUNGItree <- eventReactive(input$FUNGIgo, {
-    if (input$FUNGIphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+    if (input$FUNGIphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
       FUNGItree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$FUNGIphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
       FUNGItree <- read.tree("./Data/Saccharomycotina_fig3_Shen_etal_2016.tre")
@@ -52,7 +52,7 @@ shinyServer(function(input, output, session) {
 
   ## select outgroup labels based on selected tree
   FUNGIoutgroup.labels <- eventReactive(input$FUNGIgo, {input$FUNGIphyloSelect
-    if (input$FUNGIphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+    if (input$FUNGIphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
       FUNGIoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
       else if (input$FUNGIphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
@@ -83,8 +83,8 @@ shinyServer(function(input, output, session) {
 
   ## display proper citation based on associated manuscript
   output$FUNGIcitationText <- renderText({
-      if (input$FUNGIphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
+      if (input$FUNGIphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
+        paste("If you use this subtree, please cite: Steenwyk et al. 2019, mBio: 10.1128/mBio.00925-19")
       } else if (input$FUNGIphyloSelect == "Saccharomycotina, 86 taxa - Shen et al. 2016") {
         paste("If you use this subtree, please cite: Shen et al. 2016, G3. doi: 10.1534/g3.117.040105")
       } else if (input$FUNGIphyloSelect == "Saccharomycotina, 332 taxa - Shen et al. 2018") {
@@ -192,7 +192,7 @@ shinyServer(function(input, output, session) {
 
   ## read in tree based on selected tree
   ANIMALtree <- eventReactive(input$ANIMALgo, {
-    if (input$ANIMALphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+    if (input$ANIMALphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
       ANIMALtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
       ANIMALtree <- read.tree("./Data/Metazoans_fig3_Borowiec_etal_2015.tre")  
@@ -218,7 +218,7 @@ shinyServer(function(input, output, session) {
 
   ## select outgroup labels based on selected tree
   ANIMALoutgroup.labels <- eventReactive(input$ANIMALgo, {input$ANIMALphyloSelect
-    if (input$ANIMALphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+    if (input$ANIMALphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
       ANIMALoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
       else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
@@ -255,7 +255,7 @@ shinyServer(function(input, output, session) {
 
   ## display proper citation based on associated manuscript
   output$ANIMALcitationText <- renderText({
-      if (input$ANIMALphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+      if (input$ANIMALphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
       } else if (input$ANIMALphyloSelect == "Metazoans, 36 taxa - Borowiec et al. 2015") {
         paste("If you use this subtree, please cite: Borowiec et al. 2015, BMC Genomics. doi: 10.1186/s12864-015-2146-4")
@@ -368,7 +368,7 @@ shinyServer(function(input, output, session) {
 
   ## read in tree based on selected tree
   PLANTtree <- eventReactive(input$PLANTgo, {
-    if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+    if (input$PLANTphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
       PLANTtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
       PLANTtree <- read.tree("./Data/Flowering_plants_fig2_Xi_etal_2014.tre")  
@@ -398,7 +398,7 @@ shinyServer(function(input, output, session) {
 
   ## display proper citation based on associated manuscript
   output$PLANTcitationText <- renderText({
-      if (input$PLANTphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+      if (input$PLANTphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
       } else if (input$PLANTphyloSelect == "Flowering plants, 45 taxa - Xi et al. 2014") {
         paste("If you use this subtree, please cite: Xi et al. 2014, Systematic Biology. doi: 10.1093/sysbio/syu055 and Zhou et al. 2017, Molecular Biology and Evolution. doi: 10.1093/molbev/msx302. Phylogeny with branch lengths was obtained from Zhou et al. 2017, MBE.")
@@ -499,7 +499,7 @@ shinyServer(function(input, output, session) {
 
   ## read in tree based on selected tree
   TOLtree <- eventReactive(input$TOLgo, {
-    if (input$TOLphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+    if (input$TOLphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
       TOLtree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
     } else if (input$TOLphyloSelect == "Tree of life, 3,083 taxa - Hug et al. 2016") {
       TOLtree <- read.tree("./Data/Tree_of_Life_fig1_Hug_etal_2016.tre") 
@@ -509,7 +509,7 @@ shinyServer(function(input, output, session) {
 
   ## select outgroup labels based on selected tree
   TOLoutgroup.labels <- eventReactive(input$TOLgo, {input$TOLphyloSelect
-    if (input$TOLphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
+    if (input$TOLphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
       TOLoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
       else if (input$TOLphyloSelect == "Tree of life, 3,083 taxa - Hug et al. 2016") {
@@ -522,12 +522,12 @@ shinyServer(function(input, output, session) {
 
   ## display proper citation based on associated manuscript
   output$TOLcitationText <- renderText({
-      if (input$TOLphyloSelect == "Aspergillaceae, 81 taxa - Steenwyk et al. 2018") {
-        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv. 10.1101/370429")
+      if (input$TOLphyloSelect == "Aspergillus and Penicillium, 81 taxa - Steenwyk et al. 2019") {
+        paste("If you use this subtree, please cite: Steenwyk et al. 2019, mBio: 10.1128/mBio.00925-19")
       } else if (input$TOLphyloSelect == "Tree of life, 3,083 taxa - Hug et al. 2016") {
         paste("If you use this subtree, please cite: Hug et al. 2016, Nature Microbiology. doi: 10.1038/nmicrobiol.2016.48")
       } else 
-        paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
+        paste("If you use this subtree, please cite: Steenwyk et al. 2019, mBio: 10.1128/mBio.00925-19")
     })
 
   ## display table of taxa names
