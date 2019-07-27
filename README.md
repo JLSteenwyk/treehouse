@@ -58,7 +58,7 @@ To download the pdf of the phylogeny or the newick tree file, click "Download Pl
 ### Fungi
 | Taxa represented                | Number of tips           | Reference                                                                       |
 | ------------------------------- |:------------------------:| :-----------------------------------------------------------------------------: |
-| *Aspergillus* and *Penicillium* | 81 taxa                  | [Steenwyk, et al. 2018](https://www.biorxiv.org/content/10.1101/370429v3)       |
+| *Aspergillus* and *Penicillium* | 81 taxa                  | [Steenwyk, et al. 2019](https://mbio.asm.org/content/10/4/e00925-19)       |
 | *Cryptococcus neoformans*       | 387 strains              | [Desjardins et al. 2017](https://genome.cshlp.org/content/27/7/1207.short)      |
 | Fungi                           | 214 taxa                 | [James et al. 2006](https://www.nature.com/articles/nature05110)                |
 | Agaricomycetes                  | 5,284 taxa               | [Varga et al. 2019](https://www.nature.com/articles/s41559-019-0834-1)          |
