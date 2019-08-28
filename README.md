@@ -4,7 +4,7 @@ Phylogenies are rapidly becoming larger due to the rising number of available ge
 
 Our aim is to make phylogenies more accessible to all and facilitate researchers exploration in their own phylogenies. 
 
-<i>treehouse</i> is now published as an open access article! [Publication link](https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-019-4577-5)
+<i>treehouse</i> has been published as an open access article! [Publication link](https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-019-4577-5)
 
 ## Quick Start
 
