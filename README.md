@@ -42,6 +42,11 @@ See example_taxa_Aspergillaceae.txt as an example file in the present github rep
 To download the pdf of the phylogeny or the newick tree file, click "Download Plot" or "Download Newick File", respectively.
 <br /><br />
 
+## Additional vignettes
+• See treehouse_vignettes.pdf for two additional vignettes on <i>treehouse</i> usage
+• Vignette 1: Obtain a subtree of plant pathogens in the genera <i>Aspergillus</i> and <i>Penicillium</i>.
+• Vignette 2: Obtain a subtree that allows for qualitative comparison of branch lengths for a faster- and slower-evolving lineage of budding yeast, <i>Hanseniaspora</i>.
+
 ## Current phylogenies available
 
 ### Animal
