@@ -4,6 +4,8 @@ Phylogenies are rapidly becoming larger due to the rising number of available ge
 
 Our aim is to make phylogenies more accessible to all and facilitate researchers exploration in their own phylogenies. 
 
+[treehouse Publication link](https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-019-4577-5)
+
 ## Quick Start
 
 ### 1) Installing dependencies
@@ -85,4 +87,7 @@ Others are welcome to contribute phylogenies to treehouse as well as provide use
 <br />
 <br />
 treehouse is developed and maintained by [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+## Citation
+If you found <i>treehouse</i> useful in your research, please cite Steenwyk JL, Rokas A. 2019. Treehouse: a user-friendly application to obtain subtrees from large phylogenies. BMC Res. Notes 12:541. [Link](https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-019-4577-5)<br />
 
