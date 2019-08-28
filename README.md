@@ -45,7 +45,7 @@ To download the pdf of the phylogeny or the newick tree file, click "Download Pl
 ## Additional vignettes
 • See treehouse_vignettes.pdf for two additional vignettes on <i>treehouse</i> usage<br />
 • Vignette 1: Obtain a subtree of plant pathogens in the genera <i>Aspergillus</i> and <i>Penicillium</i>.<br />
-• Vignette 2: Obtain a subtree that allows for qualitative comparison of branch lengths for a faster- and slower-evolving lineage of budding yeast, <i>Hanseniaspora</i>.<br />
+• Vignette 2: Obtain a subtree that allows for qualitative comparison of branch lengths for a faster- and slower-evolving lineage of budding yeast, <i>Hanseniaspora</i>.<br /><br />
 
 ## Current phylogenies available
 
