@@ -16,8 +16,9 @@ if (!require("phytools")) {
 
 # Define server logic
 shinyServer(function(input, output, session) {
-  
-  ### FUNGI
+  #############
+  ### FUNGI ###
+  #############
   ## read in file reactively
   FUNGIdata <- eventReactive(input$FUNGIgo, { 
     req(input$FUNGIfile)
@@ -181,7 +182,35 @@ shinyServer(function(input, output, session) {
     }
   )
 
-  ### ANIMAL
+  ## write treefile
+  output$FUNGINewickNOBL<- downloadHandler(
+    # Specify the file name
+    filename=function() {
+      paste("treehouse-",Sys.Date(),".tre",sep= "")},
+    content=function(file){
+      # root tree
+      tree<-root(FUNGItree(), outgroup = FUNGIoutgroup.labels(), resolve.root = TRUE)
+      # drop outgroup tips not in ingroup.labels
+      ingroup.labels<-as.vector(FUNGIdata()$V1)
+      outgroup.labels<-setdiff(FUNGIoutgroup.labels(),ingroup.labels)
+      tree<-drop.tip(tree, outgroup.labels)
+      # prune taxa not of interest
+      pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
+      if("try-error" %in% class(pruned.tree)) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again. A full list of tip names is available below\n\nR error:only 0's may be mixed with negative subscripts")
+      # plot tree
+      p<-try(plotTree(pruned.tree))
+      if("try-error" %in% class(p)) p<-plot.phylo(pruned.tree)
+      p
+      # write tree file out
+      prune.tree$edge.length<-NULL
+      write.tree(pruned.tree, file=file)
+    }
+  )
+
+  ##############
+  ### ANIMAL ###
+  ##############
+
   ## read in file reactively
   ANIMALdata <- eventReactive(input$ANIMALgo, { 
     req(input$ANIMALfile)
@@ -357,7 +386,35 @@ shinyServer(function(input, output, session) {
     }
   )
 
-  ### PLANT
+  ## write treefile
+  output$ANIMALNewickNOBL<- downloadHandler(
+    # Specify the file name
+    filename=function() {
+      paste("treehouse-",Sys.Date(),".tre",sep= "")},
+    content=function(file){
+      # root tree
+      tree<-root(ANIMALtree(), outgroup = ANIMALoutgroup.labels(), resolve.root = TRUE)
+      # drop outgroup tips not in ingroup.labels
+      ingroup.labels<-as.vector(ANIMALdata()$V1)
+      outgroup.labels<-setdiff(ANIMALoutgroup.labels(),ingroup.labels)
+      tree<-drop.tip(tree, outgroup.labels)
+      # prune taxa not of interest
+      pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
+      if("try-error" %in% class(pruned.tree)) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again. A full list of tip names is available below\n\nR error:only 0's may be mixed with negative subscripts")
+      # plot tree
+      p<-try(plotTree(pruned.tree))
+      if("try-error" %in% class(p)) p<-plot.phylo(pruned.tree)
+      p
+      pruned.tree$edge.length<-NULL
+      # write tree file out
+      write.tree(pruned.tree, file=file)
+    }
+  )
+
+  #############
+  ### PLANT ###
+  #############
+
   ## read in file reactively
   PLANTdata <- eventReactive(input$PLANTgo, { 
     req(input$PLANTfile)
@@ -439,7 +496,7 @@ shinyServer(function(input, output, session) {
   })
   
   ## save pdf
-  output$ANIMALTreePlot<- downloadHandler(
+  output$PLANTTreePlot<- downloadHandler(
     #Specify The File Name 
     filename = function() {
       paste("treehouse-",Sys.Date(),".pdf",sep= "")},
@@ -488,7 +545,35 @@ shinyServer(function(input, output, session) {
     }
   )
 
-  ### TREE OF LIFE
+  ## write treefile
+  output$PLANTNewickNOBL<- downloadHandler(
+    # Specify the file name
+    filename=function() {
+      paste("treehouse-",Sys.Date(),".tre",sep= "")},
+    content=function(file){
+      # root tree
+      tree<-root(PLANTtree(), outgroup = PLANToutgroup.labels(), resolve.root = TRUE)
+      # drop outgroup tips not in ingroup.labels
+      ingroup.labels<-as.vector(PLANTdata()$V1)
+      outgroup.labels<-setdiff(PLANToutgroup.labels(),ingroup.labels)
+      tree<-drop.tip(tree, outgroup.labels)
+      # prune taxa not of interest
+      pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
+      if("try-error" %in% class(pruned.tree)) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again. A full list of tip names is available below\n\nR error:only 0's may be mixed with negative subscripts")
+      # plot tree
+      p<-try(plotTree(pruned.tree))
+      if("try-error" %in% class(p)) p<-plot.phylo(pruned.tree)
+      p
+      # write tree file out
+      pruned.tree$edge.length<-NULL
+      write.tree(pruned.tree, file=file)
+    }
+  )
+
+  ####################
+  ### TREE OF LIFE ###
+  ####################
+
   ## read in file reactively
   TOLdata <- eventReactive(input$TOLgo, { 
     req(input$TOLfile)
@@ -608,6 +693,31 @@ shinyServer(function(input, output, session) {
     }
   )
 
+  ## write treefile
+  output$TOLNewickNOBL<- downloadHandler(
+    # Specify the file name
+    filename=function() {
+      paste("treehouse-",Sys.Date(),".tre",sep= "")},
+    content=function(file){
+      # root tree
+      tree<-root(TOLtree(), outgroup = TOLoutgroup.labels(), resolve.root = TRUE)
+      # drop outgroup tips not in ingroup.labels
+      ingroup.labels<-as.vector(TOLdata()$V1)
+      outgroup.labels<-setdiff(TOLoutgroup.labels(),ingroup.labels)
+      tree<-drop.tip(tree, outgroup.labels)
+      # prune taxa not of interest
+      pruned.tree<-try(drop.tip(tree,tree$tip.label[-match(ingroup.labels, tree$tip.label)]), silent=TRUE)
+      if("try-error" %in% class(pruned.tree)) stop("\nlist of tip names does not match names in phylogeny. Please check tip names again. A full list of tip names is available below\n\nR error:only 0's may be mixed with negative subscripts")
+      # plot tree
+      p<-try(plotTree(pruned.tree))
+      if("try-error" %in% class(p)) p<-plot.phylo(pruned.tree)
+      p
+      # write tree file out
+      pruned.tree$edge.length<-NULL
+      write.tree(pruned.tree, file=file)
+    }
+  )
+
   ### USERTREE
   ## read in file reactively
   userData <- eventReactive(input$userGO, { 
@@ -670,6 +780,20 @@ shinyServer(function(input, output, session) {
     content=function(file){
       ingroup.labels<-as.vector(userData()$V1)
       pruned.tree<-drop.tip(userTree(),userTree()$tip.label[-match(ingroup.labels, userTree()$tip.label)])
+      # write tree file out
+      write.tree(pruned.tree, file=file)
+    }
+  )
+
+  ## write treefile
+  output$userNewickNOBL<- downloadHandler(
+    # Specify the file name
+    filename=function() {
+      paste("treehouse-",Sys.Date(),".tre",sep= "")},
+    content=function(file){
+      ingroup.labels<-as.vector(userData()$V1)
+      pruned.tree<-drop.tip(userTree(),userTree()$tip.label[-match(ingroup.labels, userTree()$tip.label)])
+      pruned.tree$edge.length<-NULL
       # write tree file out
       write.tree(pruned.tree, file=file)
     }

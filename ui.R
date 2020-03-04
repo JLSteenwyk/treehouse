@@ -35,6 +35,7 @@ shinyUI(fluidPage(
           # download buttons
           downloadButton(outputId = "userTreePlot", label = "Download Plot"),
           downloadButton(outputId = "userNewick", label = "Download Newick File"),
+          downloadButton(outputId = "userNewickNOBL", label = "Download Newick File (w/out branch lengths)"),
           hr(),
           tableOutput('USERtaxaTable')
           # close mainPanel
@@ -84,6 +85,7 @@ shinyUI(fluidPage(
           # download buttons
           downloadButton(outputId = "ANIMALTreePlot", label = "Download Plot"),
           downloadButton(outputId = "ANIMALNewick", label = "Download Newick File"),
+          downloadButton(outputId = "ANIMALNewickNOBL", label = "Download Newick File (w/out branch lengths)"),
           hr(),
           textOutput("ANIMALcitationText"),
           hr(),
@@ -134,6 +136,7 @@ shinyUI(fluidPage(
           # download buttons
           downloadButton(outputId = "FUNGITreePlot", label = "Download Plot"),
           downloadButton(outputId = "FUNGINewick", label = "Download Newick File"),
+          downloadButton(outputId = "FUNGINewickNOBL", label = "Download Newick File (w/out branch lengths)"),
           hr(),
           textOutput("FUNGIcitationText"),
           hr(),
@@ -179,6 +182,7 @@ shinyUI(fluidPage(
           # download buttons
           downloadButton(outputId = "PLANTTreePlot", label = "Download Plot"),
           downloadButton(outputId = "PLANTNewick", label = "Download Newick File"),
+          downloadButton(outputId = "PLANTNewickNOBL", label = "Download Newick File (w/out branch lengths)"),
           hr(),
           textOutput("PLANTcitationText"),
           hr(),
@@ -222,6 +226,7 @@ shinyUI(fluidPage(
           # download buttons
           downloadButton(outputId = "TOLTreePlot", label = "Download Plot"),
           downloadButton(outputId = "TOLNewick", label = "Download Newick File"),
+          downloadButton(outputId = "TOLNewickNOBL", label = "Download Newick File (w/out branch lengths)"),
           hr(),
           textOutput("TOLcitationText"),
           hr(),
