@@ -48,7 +48,7 @@ shinyServer(function(input, output, session) {
     } else if (input$FUNGIphyloSelect == "Tree of life, 3,083 taxa - Hug et al. 2016") {
       FUNGItree <- read.tree("./Data/Tree_of_Life_fig1_Hug_etal_2016.tre")
     } else if (input$FUNGIphyloSelect == "Ascomycota, 1,113 taxa - Shen et al. 2020") {
-      FUNGItree <- read.tree("./Data/Tree_of_Life_fig1_Hug_etal_2016.tre")  
+      FUNGItree <- read.tree("./Data/Ascomycota_fig1_Shen_etal_2020.tre")  
     } else 
       FUNGItree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
