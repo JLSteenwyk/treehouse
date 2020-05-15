@@ -46,7 +46,9 @@ shinyServer(function(input, output, session) {
     } else if (input$FUNGIphyloSelect == "Fungi, 60 taxa - Nagy et al. 2014") {
       FUNGItree <- read.tree("./Data/Fungi_fig1_Nagy_etal_2014.tre")  
     } else if (input$FUNGIphyloSelect == "Tree of life, 3,083 taxa - Hug et al. 2016") {
-      FUNGItree <- read.tree("./Data/Tree_of_Life_fig1_Hug_etal_2016.tre") 
+      FUNGItree <- read.tree("./Data/Tree_of_Life_fig1_Hug_etal_2016.tre")
+    } else if (input$FUNGIphyloSelect == "Ascomycota, 1,113 taxa - Shen et al. 2020") {
+      FUNGItree <- read.tree("./Data/Tree_of_Life_fig1_Hug_etal_2016.tre")  
     } else 
       FUNGItree <- read.tree("./Data/Aspergillaceae_fig1_Steenwyk_etal_2018.tre")
   })
@@ -77,6 +79,9 @@ shinyServer(function(input, output, session) {
       else if (input$FUNGIphyloSelect == "Fungi, 60 taxa - Nagy et al. 2014") {
       FUNGIoutgroup.labels<-c("Dicdi", "Enthi", "Thetr", "Monbr", "Salro", "Traho", "Enccu", "Antlo")
       }
+      else if (input$FUNGIphyloSelect == "Ascomycota, 1,113 taxa - Shen et al. 2020") {
+      FUNGIoutgroup.labels<-c("Malassezia_globosa", "Cryptococcus_neoformans", "Mixia_osmundae", "Phanerochaete_chrysosporium", "Microbotryum_violaceum", "Ustilago_maydis")
+      }
       else {
       FUNGIoutgroup.labels<-c("Neurospora_crassa","Microsporum_canis","Uncinocarpus_reesii","Trichophyton_rubrum","Basipetospora_chlamydospora","Coccidioides_posadasii","Paracoccidioides_brasiliensis","Trichoderma_reesei","Coccidioides_immitis","Histoplasma_capsulatum","Talaromyces_occitanis","Talaromyces_marneffei")
       }
@@ -100,6 +105,8 @@ shinyServer(function(input, output, session) {
         paste("If you use this subtree, please cite: Varga et al. 2019, Nature Ecology and Evolution. doi: 10.1038/s41559-019-0834-1")
       } else if (input$FUNGIphyloSelect == "Fungi, 60 taxa - Nagy et al. 2014") {
         paste("If you use this subtree, please cite: Nagy et al. 2014, Nature Communications. doi: 10.1038/ncomms5471")
+      } else if (input$FUNGIphyloSelect == "Ascomycota, 1,113 taxa - Shen et al. 2020") {
+        paste("If you use this subtree, please cite: Shen et al. 2020, bioRxiv. doi: 10.1101/2020.05.11.088658v1")
       } else 
         paste("If you use this subtree, please cite: Steenwyk et al. 2018, bioRxiv")
     })

@@ -112,7 +112,8 @@ shinyUI(fluidPage(
                       "Agaricomycetes, 5,284 taxa - Varga et al. 2019",
                       "Saccharomyces cerevisiae, 1,011 strains - Peter et al. 2018",
                       "Saccharomycotina, 86 taxa - Shen et al. 2016",
-                      "Saccharomycotina, 332 taxa - Shen et al. 2018")
+                      "Saccharomycotina, 332 taxa - Shen et al. 2018",
+                      "Ascomycota, 1,113 taxa - Shen et al. 2020")
                       ),
           # input file
           fileInput("FUNGIfile", "File input:"),
