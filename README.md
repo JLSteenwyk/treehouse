@@ -72,6 +72,7 @@ To download the pdf of the phylogeny or the newick tree file, click "Download Pl
 | *Saccharomyces cerevisiae*      | 1,011 strains            | [Peter, et al. 2018](https://www.nature.com/articles/s41586-018-0030-5)         |
 | Saccharomycotina                | 86 taxa                  | [Shen, et al. 2016](http://www.g3journal.org/content/6/12/3927.abstract)        |
 | Saccharomycotina                | 332 taxa                 | [Shen, et al. 2018](https://www.cell.com/cell/fulltext/S0092-8674(18)31332-1)   |
+| Ascomycota                      | 332 taxa                 | [Shen, et al. 2020](https://www.biorxiv.org/content/10.1101/2020.05.11.088658v1)|
 
 ### Plant
 | Taxa represented                | Number of tips           | Reference                                                                       |
