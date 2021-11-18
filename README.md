@@ -1,5 +1,20 @@
 ![](www/treehouse_logo.png)
 
+<a href="https://github.com/jlsteenwyk/ggpubfigs/graphs/contributors" alt="Contributors">
+    <img src="https://img.shields.io/github/contributors/jlsteenwyk/treehouse">
+</a>
+<a href="https://twitter.com/intent/follow?screen_name=jlsteenwyk" alt="Author Twitter">
+    <img src="https://img.shields.io/twitter/follow/jlsteenwyk?style=social&logo=twitter"
+        alt="follow on Twitter">
+</a>
+<br />
+<a href="https://lbesson.mit-license.org/" alt="License">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg">
+</a>
+<a href="https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-019-4577-5">
+    <img src="https://zenodo.org/badge/DOI/10.1186/s13104-019-4577-5.svg">
+</a>
+
 Phylogenies are rapidly becoming larger due to the rising number of available genomes. Beyond broad patterns, large phylogenies often become uninterpretable as tip labels are so small or excluded altogether. As a result, large phylogenies can be difficult to use for other researchers especially for groups interested in the relationships among a subset of taxa. Here, we introduce <i>treehouse</i>, a user friendly shiny app that allows researchers to obtain subtrees from large-scale phylogenies. <i>Treehouse</i> is populated with a handful of large-scale phylogenies available through <i>treehouseDB</i>. Additionally, <i>treehouse</i> features an additional function, <i>userTree</i>, which allows a user to upload and parse their own phylogeny.
 
 Our aim is to make phylogenies more accessible to all and facilitate researchers exploration in their own phylogenies. 
